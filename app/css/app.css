@@ -1676,10 +1676,10 @@ button, .button {
     font-size: 1.25rem;
     /*     @else                            { font-size: $padding - rem-calc(2); } */ }
   button.small, .button.small {
-    padding-top: 0.875rem;
-    padding-right: 1.75rem;
-    padding-bottom: 0.9375rem;
-    padding-left: 1.75rem;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5625rem;
+    padding-left: 1rem;
     font-size: 0.8125rem;
     /*     @else                            { font-size: $padding - rem-calc(2); } */ }
   button.tiny, .button.tiny {
@@ -5020,3 +5020,6 @@ select {
   font-family: "Open Sans", "EB Garamond", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-size: 1.0625rem;
   color: white; }
+
+#template {
+  display: none; }
