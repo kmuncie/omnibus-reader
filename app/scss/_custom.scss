@@ -1,0 +1,46 @@
+nav.tab-bar .viewTitle {
+   font-size: rem-calc(25);
+   font-weight: 200;
+}
+
+#bibleText {
+   @extend .small-14;
+   @extend .small-offset-1;
+   @extend .medium-12;
+   @extend .medium-offset-2;
+   a {
+      color: lighten($primary-color, 20%);
+   }
+   .chapterNum {
+      font-size: rem-calc(60);
+      a {
+         color: lighten($primary-color, 5%);
+      }
+   }
+   .verseNum {
+      font-size: rem-calc(18);
+   }
+   .style-b {
+      font-size: rem-calc(20);
+      line-height: rem-calc(30);
+      @media #{$medium-up} {
+         font-size: rem-calc(25);
+         line-height: rem-calc(35);
+      }
+   }
+   sup {
+      top: -0.2em;
+      left: .2em;
+   }
+}
+
+.left-off-canvas-menu {
+   padding-top: 45px;
+}
+
+select {
+   padding: 0 5px;
+   font-family: $header-font-family;
+   font-size: rem-calc(17);
+   color: white;
+}

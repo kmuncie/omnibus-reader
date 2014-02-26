@@ -351,7 +351,7 @@ body {
   color: #222;
   padding: 0;
   margin: 0;
-  font-family: "PT Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "EB Garamond", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -594,7 +594,7 @@ select {
     width: 75%; }
   .small-13 {
     width: 81.25%; }
-  .small-14 {
+  .small-14, #bibleText {
     width: 87.5%; }
   .small-15 {
     width: 93.75%; }
@@ -606,7 +606,7 @@ select {
     float: left; }
   .small-offset-0 {
     margin-left: 0% !important; }
-  .small-offset-1 {
+  .small-offset-1, #bibleText {
     margin-left: 6.25% !important; }
   .small-offset-2 {
     margin-left: 12.5% !important; }
@@ -777,7 +777,7 @@ select {
     width: 62.5%; }
   .medium-11 {
     width: 68.75%; }
-  .medium-12 {
+  .medium-12, #bibleText {
     width: 75%; }
   .medium-13 {
     width: 81.25%; }
@@ -795,7 +795,7 @@ select {
     margin-left: 0% !important; }
   .medium-offset-1 {
     margin-left: 6.25% !important; }
-  .medium-offset-2 {
+  .medium-offset-2, #bibleText {
     margin-left: 12.5% !important; }
   .medium-offset-3 {
     margin-left: 18.75% !important; }
@@ -1227,7 +1227,7 @@ select {
       color: #222;
       padding: 1rem;
       display: block;
-      font-family: "PT Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+      font-family: "EB Garamond", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
       font-size: 1rem; }
       .accordion dd > a:hover {
         background: #e3e3e3; }
@@ -1615,7 +1615,7 @@ button, .button {
   border-style: solid;
   border-width: 0px;
   cursor: pointer;
-  font-family: "PT Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "EB Garamond", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -2262,7 +2262,7 @@ label {
 
 select {
   -webkit-appearance: none !important;
-  background: #fafafa url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==') no-repeat;
+  background: #657a74 url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==') no-repeat;
   background-position-x: 97%;
   background-position-y: center;
   border: 1px solid #cccccc;
@@ -2274,7 +2274,7 @@ select {
     -webkit-border-radius: 3px;
     border-radius: 3px; }
   select:hover {
-    background: #f3f3f3 url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==') no-repeat;
+    background: #627670 url('data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==') no-repeat;
     background-position-x: 97%;
     background-position-y: center;
     border-color: #999999; }
@@ -2284,10 +2284,10 @@ select::-ms-expand {
 
 @-moz-document url-prefix() {
   select {
-    background: #fafafa; }
+    background: #657a74; }
 
   select:hover {
-    background: #f3f3f3; } }
+    background: #627670; } }
 
 /* Attach elements to the beginning or end of an input */
 .prefix, .postfix {
@@ -2704,7 +2704,7 @@ label.error {
 
 .label {
   font-weight: normal;
-  font-family: "PT Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "EB Garamond", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   text-align: center;
   text-decoration: none;
   line-height: 1;
@@ -3079,7 +3079,7 @@ ul.pagination {
     color: #eee;
     font-weight: normal;
     font-size: 1rem;
-    font-family: "PT Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
+    font-family: "EB Garamond", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
   .pricing-table .price {
     background-color: #f6f6f6;
     padding: 0.9375rem 1.25rem;
@@ -3087,7 +3087,7 @@ ul.pagination {
     color: #333;
     font-weight: normal;
     font-size: 2rem;
-    font-family: "PT Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
+    font-family: "EB Garamond", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
   .pricing-table .description {
     background-color: #fff;
     padding: 0.9375rem;
@@ -3222,7 +3222,7 @@ dialog[open] {
   padding: 0.875rem 0;
   list-style-type: none;
   list-style-position: inside;
-  font-family: "PT Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
+  font-family: "EB Garamond", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
   .side-nav li {
     margin: 0 0 0.4375rem 0;
     font-size: 0.875rem; }
@@ -3234,7 +3234,7 @@ dialog[open] {
     .side-nav li.active > a:first-child:not(.button) {
       color: #cc7f7f;
       font-weight: normal;
-      font-family: "PT Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
+      font-family: "EB Garamond", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
     .side-nav li.divider {
       border-top: 1px solid;
       height: 0;
@@ -3343,7 +3343,7 @@ dialog[open] {
     display: inline;
     margin-left: 1rem;
     margin-bottom: 0.625rem;
-    font-family: "PT Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-family: "EB Garamond", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
     font-weight: normal;
     font-size: 0.875rem;
     color: #999; }
@@ -3559,7 +3559,7 @@ table {
       padding-right: 2rem;
       padding-bottom: 1.0625rem;
       padding-left: 2rem;
-      font-family: "PT Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+      font-family: "EB Garamond", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
       font-size: 1rem; }
       .tabs dd > a:hover {
         background: #e1e1e1; }
@@ -3854,7 +3854,7 @@ meta.foundation-mq-topbar {
     color: #fff;
     padding: 12px 0 12px 0;
     padding-left: 15px;
-    font-family: "PT Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-family: "EB Garamond", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
     font-size: 0.8125rem;
     font-weight: normal;
     background: #333; }
@@ -4214,8 +4214,8 @@ p {
 
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Exo", "PT Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: 900;
+  font-family: "Open Sans", "EB Garamond", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
   color: #4d7a5a;
   text-rendering: optimizeLegibility;
@@ -4565,11 +4565,11 @@ blockquote, blockquote p {
   position: relative;
   width: 100%;
   *zoom: 1;
-  -webkit-transition: -webkit-transform 500ms ease;
-  -moz-transition: -moz-transform 500ms ease;
-  -ms-transition: -ms-transform 500ms ease;
-  -o-transition: -o-transform 500ms ease;
-  transition: transform 500ms ease; }
+  -webkit-transition: -webkit-transform 300ms cubic-bezier(0.4,0.6,0.2,0.3);
+  -moz-transition: -moz-transform 300ms cubic-bezier(0.4,0.6,0.2,0.3);
+  -ms-transition: -ms-transform 300ms cubic-bezier(0.4,0.6,0.2,0.3);
+  -o-transition: -o-transform 300ms cubic-bezier(0.4,0.6,0.2,0.3);
+  transition: transform 300ms cubic-bezier(0.4,0.6,0.2,0.3); }
   .inner-wrap:before, .inner-wrap:after {
     content: " ";
     display: table; }
@@ -4578,7 +4578,7 @@ blockquote, blockquote p {
 
 nav.tab-bar {
   -webkit-backface-visibility: hidden;
-  background: #333;
+  background: #9AABA6;
   color: #FFF;
   height: 2.8125rem;
   line-height: 2.8125rem;
@@ -4596,8 +4596,8 @@ section.left-small {
   height: 2.8125rem;
   position: absolute;
   top: 0;
-  border-right: solid 1px #1a1a1a;
-  box-shadow: 1px 0 0 #4e4e4e;
+  border-right: solid 1px #778d87;
+  box-shadow: 1px 0 0 #a7b6b1;
   left: 0; }
 
 section.right-small {
@@ -4605,8 +4605,8 @@ section.right-small {
   height: 2.8125rem;
   position: absolute;
   top: 0;
-  border-left: solid 1px #4e4e4e;
-  box-shadow: -1px 0 0 #1a1a1a;
+  border-left: solid 1px #a7b6b1;
+  box-shadow: -1px 0 0 #4a5954;
   right: 0; }
 
 section.tab-bar-section {
@@ -4644,11 +4644,11 @@ a.menu-icon {
     height: 0;
     left: 0.8125rem;
     top: 0.3125rem;
-    -webkit-box-shadow: 1px 10px 1px 1px #FFF, 1px 16px 1px 1px #FFF, 1px 22px 1px 1px #FFF;
-    box-shadow: 0 10px 0 1px #FFF, 0 16px 0 1px #FFF, 0 22px 0 1px #FFF; }
+    -webkit-box-shadow: 1px 10px 1px 1px #657a74, 1px 16px 1px 1px #657a74, 1px 22px 1px 1px #657a74;
+    box-shadow: 0 10px 0 1px #657a74, 0 16px 0 1px #657a74, 0 22px 0 1px #657a74; }
   a.menu-icon:hover span {
-    -webkit-box-shadow: 1px 10px 1px 1px #b3b3b3, 1px 16px 1px 1px #b3b3b3, 1px 22px 1px 1px #b3b3b3;
-    box-shadow: 0 10px 0 1px #b3b3b3, 0 16px 0 1px #b3b3b3, 0 22px 0 1px #b3b3b3; }
+    -webkit-box-shadow: 1px 10px 1px 1px #475551, 1px 16px 1px 1px #475551, 1px 22px 1px 1px #475551;
+    box-shadow: 0 10px 0 1px #475551, 0 16px 0 1px #475551, 0 22px 0 1px #475551; }
 
 .left-off-canvas-menu {
   -webkit-backface-visibility: hidden;
@@ -4657,7 +4657,7 @@ a.menu-icon {
   bottom: 0;
   position: absolute;
   overflow-y: auto;
-  background: #333;
+  background: #fff;
   z-index: 1001;
   box-sizing: content-box;
   -webkit-transform: translate3d(-100%, 0, 0);
@@ -4676,7 +4676,7 @@ a.menu-icon {
   bottom: 0;
   position: absolute;
   overflow-y: auto;
-  background: #333;
+  background: #fff;
   z-index: 1001;
   box-sizing: content-box;
   -webkit-transform: translate3d(100%, 0, 0);
@@ -4703,7 +4703,7 @@ ul.off-canvas-list {
     display: block;
     padding: 0.66667rem;
     color: rgba(255, 255, 255, 0.7);
-    border-bottom: 1px solid #262626; }
+    border-bottom: 1px solid #bfbfbf; }
 
 .move-right > .inner-wrap {
   -webkit-transform: translate3d(250px, 0, 0);
@@ -4988,3 +4988,35 @@ th.hide-for-touch {
 
 .touch th.show-for-touch {
   display: table-cell !important; }
+
+nav.tab-bar .viewTitle {
+  font-size: 1.5625rem;
+  font-weight: 200; }
+
+#bibleText a {
+  color: #d39191; }
+#bibleText .chapterNum {
+  font-size: 3.75rem; }
+  #bibleText .chapterNum a {
+    color: #be5a5a; }
+#bibleText .verseNum {
+  font-size: 1.125rem; }
+#bibleText .style-b {
+  font-size: 1.25rem;
+  line-height: 1.875rem; }
+  @media only screen and (min-width:40.063em) {
+    #bibleText .style-b {
+      font-size: 1.5625rem;
+      line-height: 2.1875rem; } }
+#bibleText sup {
+  top: -0.2em;
+  left: 0.2em; }
+
+.left-off-canvas-menu {
+  padding-top: 45px; }
+
+select {
+  padding: 0 5px;
+  font-family: "Open Sans", "EB Garamond", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 1.0625rem;
+  color: white; }
