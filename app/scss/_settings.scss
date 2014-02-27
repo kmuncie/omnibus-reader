@@ -577,7 +577,7 @@ $tabbar-menu-icon-color: darken($tabbar-bg, 20%);
 // $off-canvas-overlay-background-hover: rgba(#FFF, 0.05);
 
 // Transition Variables
-$menu-slide: "transform 300ms cubic-bezier(0.4,0.6,0.2,0.3)";
+$menu-slide: "transform 300ms ease";
 
 // Orbit
 

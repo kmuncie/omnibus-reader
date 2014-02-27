@@ -1,83 +1,92 @@
 <!doctype html>
-<!--[if IE 9]>    <html class="no-js lt-ie10" lang="en"> <![endif]-->
+<!--[if IE 9]>      <html class="no-js lt-ie10" lang="en"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strike Falcon Reader</title>
-    <!-- build:css css/app.min.css -->
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Omnibus Reader</title>
+      <!-- build:css css/app.min.css -->
 
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/app_override.css">
-    <!-- endbuild -->
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:700|Exo:200|EB+Garamond' rel='stylesheet' type='text/css'>
-    <!-- build:js js/vendor/modernizr.min.js -->
-    <script src="bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
-  </head>
-  <body>
+      <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+      <link rel="stylesheet" href="css/app.css">
+      <link rel="stylesheet" href="css/app_override.css">
+      <!-- endbuild -->
+      <link href='http://fonts.googleapis.com/css?family=PT+Sans:700|Exo:200|EB+Garamond' rel='stylesheet' type='text/css'>
+      <!-- build:js js/vendor/modernizr.min.js -->
+      <script src="bower_components/modernizr/modernizr.js"></script>
+      <!-- endbuild -->
+   </head>
+   <body>
 
-    <div class="row">
-      <div class="small-14 small-centered large-12 large-centered columns panel clearfix">
-        <h1 class="left">Strike Falcon Reader</h1>
-        <a class="button right NewReaderButton" id="addNew">+ Add Reader</a>
+      <div class="row">
+         <div class="small-14 small-centered large-12 large-centered columns panel clearfix">
+            <h1 class="left">Omnibus Reader</h1>
+            <a class="button right NewReaderButton" id="addNew">+ Add Reader</a>
+         </div>
       </div>
-    </div>
 
    <div id='template'>
-  <div class="row">
+      <div class="row">
 
-    <div class="small-16 columns">
+         <div class="small-16 columns">
 
-      <div class="off-canvas-wrap">
-        <div class="inner-wrap">
-          <nav class="tab-bar">
-            <section class="left-small">
-              <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
-            </section>
+            <div class="off-canvas-wrap">
+               <div class="inner-wrap">
+                  <nav class="tab-bar">
+                     <section class="left-small">
+                        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+                     </section>
 
-            <section class="middle tab-bar-section">
-              <h2 class="viewTitle">Genesis <span class="chapNum">1</span></h2>
-            </section>
-          </nav>
+                     <section class="middle tab-bar-section">
+                        <h2 class="viewTitle">Genesis <span class="chapNum">1</span></h2>
+                     </section>
+                  </nav>
 
-          <section class="right">
-            <a class="button small viewDestroy">X</a>
-          </section>
+                  <section class="right">
+                     <a class="button small viewDestroy">X</a>
+                  </section>
 
-          <aside class="left-off-canvas-menu">
-            <select class='sel-book' name="Bible Book">
-            </select>
-            <select class='sel-chapter' name="Book Chapter">
-            </select>
-          </aside>
+                  <aside class="left-off-canvas-menu">
+                     <select class='sel-book' name="Bible Book">
+                     </select>
+                     <select class='sel-chapter' name="Book Chapter">
+                     </select>
+                  </aside>
 
-          <section class="main-section panel">
-              <div id="bibleText" class="verses">
-              </div>
-          </section>
+                  <section class="main-section panel">
+                        <div id="bibleText" class="verses">
+                           <div class="loading">
+                             <div class="stick"></div>
+                             <div class="stick"></div>
+                             <div class="stick"></div>
+                             <div class="stick"></div>
+                             <div class="stick"></div>
+                             <div class="stick"></div>
+                           </div>
+                        </div>
+                  </section>
 
-        <a class="exit-off-canvas"></a>
+               <a class="exit-off-canvas"></a>
 
-        </div>
+               </div>
+            </div>
+
+         </div>
       </div>
+   </div>
 
-    </div>
-  </div>
-</div>
-<div id="content">
-</div>
+   <div id="content">
+   </div>
 
 
-    <!-- build:js js/vendor/jquery.min.js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbuild -->
-    <!-- build:js js/foundation/foundation.min.js -->
-    <script src="bower_components/foundation/js/foundation.js"></script>
-    <!-- endbuild -->
-    <!-- build:js js/app.min.js -->
-    <script src="js/app.js"></script>
-    <!-- endbuild -->
-  </body>
+      <!-- build:js js/vendor/jquery.min.js -->
+      <script src="bower_components/jquery/dist/jquery.js"></script>
+      <!-- endbuild -->
+      <!-- build:js js/foundation/foundation.min.js -->
+      <script src="bower_components/foundation/js/foundation.js"></script>
+      <!-- endbuild -->
+      <!-- build:js js/app.min.js -->
+      <script src="js/app.js"></script>
+      <!-- endbuild -->
+   </body>
 </html>
