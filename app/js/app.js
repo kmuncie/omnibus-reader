@@ -28,10 +28,11 @@ var app = (function() {
 })();
 
 $(document).ready(function() {
-    $(document).foundation();
+   'use strict';
+   $(document).foundation();
 
-    // Hack to get off-canvas .menu-icon to fire on iOS
-    $('.menu-icon').click(function(){ false });
+   // Hack to get off-canvas .menu-icon to fire on iOS
+   $('.menu-icon').click(false);
 });
 
 // END FRAMEWORK
