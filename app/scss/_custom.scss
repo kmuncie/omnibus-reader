@@ -4,10 +4,10 @@ nav.tab-bar .viewTitle {
 }
 
 #bibleText {
-   @extend .small-14;
-   @extend .small-offset-1;
-   @extend .medium-12;
-   @extend .medium-offset-2;
+   padding: 0 15px;
+   @media #{$medium-up} {
+      padding: 0 25px;
+   }
    a {
       color: lighten($primary-color, 20%);
    }
@@ -43,6 +43,34 @@ select {
    font-family: $header-font-family;
    font-size: rem-calc(17);
    color: white;
+}
+
+.siteTitle {
+   @media #{$small-only} {
+      font-size: rem-calc(28);
+   }
+}
+
+.NewReaderButton {
+   padding-top: 0.5rem;
+   padding-right: 1rem;
+   padding-bottom: 0.5625rem;
+   padding-left: 1rem;
+   font-size: 0.8125rem;
+   @media #{$medium-up} {
+      padding-top: 1rem;
+      padding-right: 1.5rem;
+      padding-bottom: 1rem;
+      padding-left: 1.5rem;
+      font-size: 1rem;
+   }
+}
+
+.viewDestroy {
+   font-size: rem-calc(25);
+   padding-left: 10px;
+   padding-top: 10px;
+   color: darken($tabbar-bg, 20%);
 }
 
 #template {

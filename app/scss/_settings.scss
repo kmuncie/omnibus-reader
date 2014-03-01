@@ -30,7 +30,7 @@
 
 // $include-html-grid-classes: $include-html-classes;
 
-// $row-width: rem-calc(1000);
+$row-width: rem-calc(1500);
 // $column-gutter: rem-calc(40);
 $total-columns: 16;
 
@@ -420,9 +420,6 @@ $button-font-family: join("Open Sans", $body-font-family);
 // $glowing-effect-fade-time: 0.45s;
 // $glowing-effect-color: $input-focus-border-color;
 
-// Select variables
-$select-bg-color: darken(#9AABA6, 20%);
-
 // Inline Lists
 
 // $include-html-inline-list-classes: $include-html-classes;
@@ -522,11 +519,14 @@ $select-bg-color: darken(#9AABA6, 20%);
 
 // Off-canvas
 
-$tabbar-bg: #9AABA6;
+$tabbar-bg: #919FAC;
 // $tabbar-height: rem-calc(45);
 // $tabbar-line-height: $tabbar-height;
 // $tabbar-color: #FFF;
 // $tabbar-middle-padding: 0 rem-calc(10);
+
+// Select variables
+$select-bg-color: darken($tabbar-bg, 20%);
 
 // Off Canvas Divider Styles
 // $tabbar-right-section-border: solid 1px scale-color($tabbar-bg, $lightness: 13%);
@@ -653,7 +653,7 @@ $menu-slide: "transform 300ms ease";
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-// $panel-bg: scale-color(#fff, $lightness: -5%);
+$panel-bg: scale-color(#F9F9F9, $lightness: -5%);
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -666,7 +666,7 @@ $menu-slide: "transform 300ms ease";
 // $panel-padding: rem-calc(20);
 
 // We use these to set default font colors
-// $panel-font-color: #333;
+$panel-font-color: #4D5647;
 // $panel-font-color-alt: #fff;
 
 // $panel-header-adjust: true;
@@ -1086,7 +1086,7 @@ $menu-slide: "transform 300ms ease";
 $header-font-family: join("Open Sans", $body-font-family);
 $header-font-weight: 700;
 // $header-font-style: normal;
-$header-font-color: #4d7a5a;
+$header-font-color: #372D2D;
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
 // $header-bottom-margin: .5rem;

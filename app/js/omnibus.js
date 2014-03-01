@@ -15,14 +15,10 @@
    var Layout = function() {
       var divContent = $('#content');
       var divAddNew = $('#addNew');
-      var divAdjWidth = $('#jsWidth');
 
       this.bindEvents = function(events) {
          divAddNew.click(function() {
             events.layoutAddView();
-         });
-         divAdjWidth.click(function() {
-            events.layoutAdjWidth();
          });
       };
 
@@ -72,7 +68,7 @@
       var divTemplate = $('#template').children();
 
       this.divView = divTemplate.clone();
-      this.adjWidth = this.divView.find('#jsWidth');
+      // this.adjWidth = this.divView.find('.adjWidth');
       this.selectBooks = this.divView.find('.sel-book');
       this.selectChapter = this.divView.find('.sel-chapter');
       this.divLoading = this.divView.find('.loading');
@@ -94,16 +90,11 @@
             events.viewDestroy(self);
          });
 
-         this.adjWidth.click(function() {
-            if ($(this).hasClass('small-16')) {
-               $(this).removeClass('small-16');
-               $(this).addClass('small-8');
-            }
-            else {
-               $(this).removeClass('small-8');
-               $(this).addClass('small-16');
-            }
-         });
+         // this.adjWidth.click(function() {
+         //    console.log($('#jsWidth'));
+         //    $('#jsWidth').toggleClass('small-8');
+         //    $('#jsWidth').toggleClass('small-16');
+         // });
 
          this.selectChapter.change(function() {
             var bid = self.selectBooks.val();
@@ -181,9 +172,6 @@
          viewDestroy: function(view) {
             layout.removeView(view);
             delete views[views.indexOf(view)];
-         },
-         layoutAdjWidth: function() {
-            layout.adjWidth();
          },
          viewDuplicate: function(view) {
             var copy = new View();
