@@ -13,15 +13,15 @@
 
       <div class="row">
          <div class="small-14 small-centered large-12 large-centered columns panel clearfix">
-            <h1 class="left">Omnibus Reader</h1>
-            <a class="button right NewReaderButton" id="addNew">+ Add Reader</a>
+            <h1 class="left siteTitle">Omnibus Reader</h1>
+            <a class="button right NewReaderButton" id="addNew"><span class="fa fa-plus"></span> Add Reader</a>
          </div>
       </div>
 
-   <div id='template'>
-      <div class="row">
-
-         <div id="jsWidth" class="small-16 columns">
+   <div id="template">
+<!--       <div class="row">
+ -->
+         <div class="columns small-16 large-8">
 
             <div class="off-canvas-wrap">
                <div class="inner-wrap">
@@ -33,12 +33,11 @@
                      <section class="middle tab-bar-section">
                         <h2 class="viewTitle">Genesis <span class="chapNum">1</span></h2>
                      </section>
-                  </nav>
 
-                  <section class="right">
-                     <a class="button small viewDestroy">X</a>
-                     <a class="button small viewAdjWidth">Width</a>
-                  </section>
+                     <section class="right-small">
+                        <a class="viewDestroy"><span class="fa fa-times"></span></a>
+                     </section>
+                  </nav>
 
                   <aside class="left-off-canvas-menu">
                      <select class='sel-book' name="Bible Book">
@@ -66,11 +65,12 @@
             </div>
 
          </div>
-      </div>
+      <!-- </div> -->
    </div>
 
-   <div id="content">
-   </div>
+   <div class="row">
+      <div id="content"></div>
+   </div> <!-- end row -->
 
 
       <script src="js/vendor/jquery.min.js"></script>
