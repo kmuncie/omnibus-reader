@@ -1,18 +1,18 @@
 {
-	"node": true,
-	"curly": true,
-	"eqnull": true,
-	"eqeqeq": true,
-	"undef": true,
-	"unused": true,
-	"indent": 3,
-	"trailing": true,
-	"browser": true,
-	"devel": true,
-	"strict": true,
-	"quotmark": "single",
-	"globals": {
-		"jQuery": true,
-		"$": true
-	}
+   "node": true,
+   "curly": true,
+   "eqnull": true,
+   "eqeqeq": true,
+   "undef": true,
+   "unused": true,
+   "indent": 3,
+   "trailing": true,
+   "browser": true,
+   "devel": true,
+   "strict": true,
+   "quotmark": "single",
+   "globals": {
+      "jQuery": true,
+      "$": true
+   }
 }
