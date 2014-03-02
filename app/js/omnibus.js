@@ -11,7 +11,7 @@
 (function() {
    'use strict';
    var Fetcher, Layout, View, Controller,
-       DEBUG = true,
+       DEBUG = false,
        view_count = 0;
 
 
