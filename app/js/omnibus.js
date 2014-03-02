@@ -20,9 +20,7 @@
       BASE_URL: 'http://www.jw.org/en/publications/bible/nwt/books/json/',
 
       listBooks: function() {
-         var url = this.BASE_URL + '?callback=?',
-         gettingContent = $.getJSON(url);
-         return gettingContent.then(function (data) {
+         return this.__makeRequest('').then(function (data) {
             return data.editionData.books;
          });
       },
@@ -31,15 +29,28 @@
       getChapter: function(bid, cid) {
          var bcid = ('00' + bid).slice(-2) + ('00' + cid).slice(-3),
              range = bcid + '001-' + bcid + '999',
-             url = this.BASE_URL + 'html/' + range + '?callback=?',
-             gettingContent = $.getJSON(url);
+             url = 'html/' + range;
 
-         return gettingContent.then(function (data) {
+         return this.__makeRequest(url).then(function (data) {
             // returns the first range element
             return data.ranges[Object.keys(data.ranges)[0]];
          });
+      },
 
-      }
+
+      __makeRequest: (function() {
+         var cache = {};
+
+         return function(path) {
+            path = this.BASE_URL + path + '?callback=?';
+
+            if (!cache.hasOwnProperty(path)) {
+               cache[path] = $.getJSON(path);
+            }
+
+            return cache[path];
+         }
+      }())
    };
 
 
