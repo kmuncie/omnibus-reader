@@ -30,7 +30,7 @@
 
 // $include-html-grid-classes: $include-html-classes;
 
-$row-width: rem-calc(1500);
+$row-width: rem-calc(2000);
 // $column-gutter: rem-calc(40);
 $total-columns: 16;
 
@@ -67,10 +67,10 @@ $primary-color: #b64848;
 // $shiny-edge-active-color: rgba(#000, .2);
 
 // Media Query Ranges
-// $small-range: (0em, 40em);
-// $medium-range: (40.063em, 64em);
-// $large-range: (64.063em, 90em);
-// $xlarge-range: (90.063em, 120em);
+$small-range: (0em, 50em);
+$medium-range: (50.063em, 90em);
+$large-range: (90.063em, 120em);
+// $xlarge-range: (45.063em, 60em);
 // $xxlarge-range: (120.063em);
 
 // $screen: "only screen";

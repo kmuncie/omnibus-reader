@@ -1,13 +1,21 @@
 nav.tab-bar .viewTitle {
-   font-size: rem-calc(25);
+   font-size: rem-calc(18);
    font-weight: 200;
+   @media #{$medium-up} {
+      font-size: rem-calc(25);
+   }
+}
+
+.aView {
+   margin-bottom: 20px;
+}
+.text-section {
+   border: 1px solid #ccc;
+   background-color: #EEEEEE;
 }
 
 #bibleText {
-   padding: 0 15px;
-   @media #{$medium-up} {
-      padding: 0 25px;
-   }
+   padding: 0 10px;
    a {
       color: lighten($primary-color, 20%);
    }
@@ -24,8 +32,8 @@ nav.tab-bar .viewTitle {
       font-size: rem-calc(20);
       line-height: rem-calc(30);
       @media #{$medium-up} {
-         font-size: rem-calc(25);
-         line-height: rem-calc(35);
+         font-size: rem-calc(23);
+         line-height: rem-calc(37);
       }
    }
    sup {
@@ -47,11 +55,20 @@ select {
 
 .siteTitle {
    @media #{$small-only} {
-      font-size: rem-calc(28);
+      font-size: rem-calc(25);
+      text-align: center;
+   }
+   @media #{$medium-up} {
+      float: left !important;
    }
 }
 
 .NewReaderButton {
+   @media #{$small-only} {
+      padding-right: 0;
+      padding-left: 0;
+      width: 100%;
+   }
    padding-top: 0.5rem;
    padding-right: 1rem;
    padding-bottom: 0.5625rem;
