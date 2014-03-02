@@ -5000,6 +5000,8 @@ nav.tab-bar .viewTitle {
       padding: 0 25px; } }
   #bibleText a {
     color: #d39191; }
+    #bibleText a.xrefLink, #bibleText a.footnoteLink {
+      display: none; }
   #bibleText .chapterNum {
     font-size: 3.75rem; }
     #bibleText .chapterNum a {
