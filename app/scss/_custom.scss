@@ -10,6 +10,11 @@ nav.tab-bar .viewTitle {
    }
    a {
       color: lighten($primary-color, 20%);
+
+      &.xrefLink,
+      &.footnoteLink {
+         display: none;
+      }
    }
    .chapterNum {
       font-size: rem-calc(60);

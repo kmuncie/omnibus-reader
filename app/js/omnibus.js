@@ -11,30 +11,233 @@
 (function() {
    'use strict';
    var Fetcher, Layout, View, Controller,
+       DEBUG = true,
        view_count = 0;
 
 
+   // Normalize IndexedDB naming
+   window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+   window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+   window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
+   if (!window.indexedDB) {
+      window.alert('Your browser doesn\'t support a stable version of IndexedDB. Please upgrade to a modern browser.');
+      return;
+   }
 
-   Fetcher = function() {}
+
+
+   function log(obj) {
+      if (DEBUG) {
+         console.log(obj);
+      }
+   }
+
+
+
+   Fetcher = function() {
+      var gettingDB = new $.Deferred(),
+          request = window.indexedDB.open(this.DATABASE, this.VERSION);
+
+      request.onerror = function(event) {
+         gettingDB.reject();
+         window.alert('Could not open IndexedDB connection. Error: ' + event.target.errorCode);
+      };
+
+      request.onsuccess = function() {
+         gettingDB.resolve(request.result);
+      };
+
+      request.onupgradeneeded = function(event) {
+         var db = event.target.result,
+             bookStore = db.createObjectStore('books', { keyPath: 'bookNum' }),
+             chapterStore = db.createObjectStore('chapters', { keyPath: 'range' });
+
+         bookStore.createIndex('urlSegment', 'urlSegment', { unique: true });
+         chapterStore.createIndex('validRange', 'validRange', { unique: true });
+      };
+
+      this.gettingDB = gettingDB;
+   };
+
    Fetcher.prototype = {
+      DATABASE: 'BibleFetcher',
+      VERSION: 1,
       BASE_URL: 'http://www.jw.org/en/publications/bible/nwt/books/json/',
 
-      listBooks: function() {
-         return this.__makeRequest('').then(function (data) {
-            return data.editionData.books;
+
+      fillCache: function() {
+         var self = this;
+
+         this.listBooks().then(function(books) {
+            (function load(i, j) {
+               var book = books[i];
+               var numChapters = parseInt(book.chapterCount, 10);
+
+               self.getChapter(book.bookNum, j).then(function() {
+                  if (j < numChapters) {
+                     j++;
+                  } else {
+                     i++;
+                     j = 1;
+                  }
+
+                  if (i < books.length) {
+                     setTimeout(function() {
+                        load(i, j);
+                     }, 50);
+                  }
+               });
+            }(0, 1));
          });
       },
 
 
       getChapter: function(bid, cid) {
-         var bcid = ('00' + bid).slice(-2) + ('00' + cid).slice(-3),
-             range = bcid + '001-' + bcid + '999',
-             url = 'html/' + range;
+         var range = this.__getRangeID(bid, cid),
+             getting = new $.Deferred(),
+             self = this;
 
-         return this.__makeRequest(url).then(function (data) {
-            // returns the first range element
-            return data.ranges[Object.keys(data.ranges)[0]];
+         this.__getByKey('chapters', range).done(function(chapter) {
+            getting.resolve(chapter);
+         }).fail(function() {
+            self.__fillChapter(range).then(function() {
+               return self.getChapter(bid, cid);
+            }).then(function(chapter) {
+               getting.resolve(chapter);
+            });
          });
+
+         return getting;
+      },
+
+
+      listBooks: function() {
+         var listing = this.__listObjectStore('books'),
+             self = this;
+
+         listing = listing.then(function(books) {
+            if (books.length === 0) {
+               return self.__fillBookStore().then(function() {
+                  return self.listBooks();
+               });
+            }
+
+            return books;
+         });
+
+         return listing;
+      },
+
+
+      __fillBookStore: function() {
+         var self = this,
+             listing;
+
+         listing = this.__makeRequest('').then(function(data) {
+            return data.editionData.books;
+         });
+
+         return listing.then(function(books) {
+            var bookNums = Object.keys(books);
+
+            (function insert(bookNum) {
+               var book = books[bookNum];
+
+               book.bookNum = parseInt(bookNum, 10);
+               self.__insert('books', book).then(function() {
+                  if (bookNums.length) {
+                     insert( bookNums.shift() );
+                  }
+               });
+
+            }( bookNums.shift() ));
+         });
+      },
+
+
+      __fillChapter: function(range) {
+         var url = 'html/' + range,
+             self = this;
+
+         return this.__makeRequest(url).then(function (d) {
+            var chapter = d.ranges[Object.keys(d.ranges)[0]];
+            chapter.range = range;
+            return self.__insert('chapters', chapter);
+         });
+      },
+
+
+      __getByKey: function(name, key) {
+         var getting = new $.Deferred();
+
+         this.__getObjectStore(name).then(function(store) {
+            var request = store.get(key);
+
+            request.onsuccess = function(e) {
+               var result = e.target.result;
+
+               if (result !== undefined) {
+                  log('Found key ' + key + ' in ' + name + ' ObjectStore');
+                  getting.resolve(e.target.result);
+                  return;
+               }
+
+               log('Found nothing for key ' + key + ' in ' + name + ' ObjectStore');
+               getting.reject();
+            };
+         });
+
+         return getting;
+      },
+
+
+      __getObjectStore: function(name) {
+         return this.gettingDB.then(function(db) {
+            var transaction = db.transaction([name], 'readwrite'),
+                store = transaction.objectStore(name);
+            return store;
+         });
+      },
+
+
+      __getRangeID: function(bid, cid) {
+         var bcid = ('00' + bid).slice(-2) + ('00' + cid).slice(-3),
+             range = bcid + '001-' + bcid + '999';
+         return range;
+      },
+
+
+      __insert: function(name, obj) {
+         return this.__getObjectStore(name).then(function(store) {
+            store.add(obj);
+         });
+      },
+
+
+      __listObjectStore: function(name, keyRange) {
+         var listing = new $.Deferred();
+
+         keyRange = keyRange || window.IDBKeyRange.lowerBound(0);
+
+         this.__getObjectStore(name).then(function(store) {
+            var cursorRequest = store.openCursor(keyRange),
+                set = [];
+
+            cursorRequest.onsuccess = function(e) {
+               var cursor = e.target.result;
+
+               if (cursor) {
+                  set.push(cursor.value);
+                  cursor.continue();
+                  return;
+               }
+
+               log('Found ' + set.length + ' rows in ' + name + ' ObjectStore');
+               listing.resolve(set);
+            };
+         });
+
+         return listing;
       },
 
 
@@ -45,11 +248,16 @@
             path = this.BASE_URL + path + '?callback=?';
 
             if (!cache.hasOwnProperty(path)) {
+               log('Requesting ' + path);
                cache[path] = $.getJSON(path);
+
+               cache[path].done(function() {
+                  log('Response ' + path);
+               });
             }
 
             return cache[path];
-         }
+         };
       }())
    };
 
@@ -111,20 +319,19 @@
          this.selectChapter.change(function() {
             var bid = self.selectBooks.val();
             var cid = self.selectChapter.val();
+
             events.viewSelectChapter(self, bid, cid);
          });
       },
 
 
       populateBookList: function(books) {
-         var book;
-
+         var book, i;
          this.selectBooks.empty();
-         for (var id in books) {
-            if (books.hasOwnProperty(id)) {
-               book = books[id];
-               this.selectBooks.append('<option value="' + id + '">' + book.standardName + '</option>');
-            }
+
+         for (i = 0; i < books.length; i++) {
+            book = books[i];
+            this.selectBooks.append('<option value="' + book.bookNum + '">' + book.standardName + '</option>');
          }
       },
 
@@ -192,24 +399,23 @@
          },
 
 
-         viewDuplicate: function(view) {
-            var copy = new View();
-
-            views.push(copy);
-            view.bindEvents(events);
-            copy.populateBookSelect(booklist);
-            events.viewSelectBook(copy, view.getSelectedBook(), view.getSelectChapter());
-            layout.addView(copy);
-         },
-
-
          viewSelectBook: function(view, bid, cid) {
-            view.populateChapterList(booklist[bid].chapterCount);
+            bid = parseInt(bid, 10);
+            cid = parseInt(cid, 10);
+
+            var book = booklist.filter(function(b) {
+               return b.bookNum === bid;
+            })[0];
+
+            view.populateChapterList(book.chapterCount);
             events.viewSelectChapter(view, bid, cid || 1);
          },
 
 
          viewSelectChapter: function(view, bid, cid) {
+            bid = parseInt(bid, 10);
+            cid = parseInt(cid, 10);
+
             view.setLoadingIndicator(true);
             fetcher.getChapter(bid, cid).done(function(chapter) {
                view.showChapter(chapter);
@@ -231,6 +437,8 @@
 
    controller.ready(function() {
       controller.layoutAddView();
+
+      fetcher.fillCache();
    });
 
 }());
