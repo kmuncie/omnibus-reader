@@ -8,3 +8,4 @@ An online Bible reading application
 * Ruben Luna
 * Jonathan James
 * Evan Yu
+* Craig Weber
