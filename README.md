@@ -2,6 +2,10 @@
 
 An online Bible reading application
 
+## Live Development Build
+
+[Omnibus on Github Pages](http://kmuncie.github.io/omnibus-reader/)
+
 ## Development
 
 Project generated using [Yeoman](http://yeoman.io/index.html) and [generator-zf5](https://github.com/juliancwirko/generator-zf5)
@@ -13,7 +17,7 @@ Project generated using [Yeoman](http://yeoman.io/index.html) and [generator-zf5
 * JSHint
 * Font Awesome
 
-Grunt tasks:
+#### Grunt tasks:
 
 ..for validating javascript
 ```
@@ -34,6 +38,7 @@ $ grunt publish
 ..for dist directory preview (server on 127.0.0.1:9001)
 ```
 $ grunt server-dist
+```
 
 ### Created by
 * Kevin Muncie
