@@ -4097,6 +4097,11 @@ section.right-small {
 .aView {
   margin-bottom: 20px; }
 
+@media only screen and (max-width: 50em) {
+  nav.tab-bar .viewTitle {
+    text-align: left;
+    font-size: 0.9375rem; } }
+
 .barIcon {
   font-size: 1.875rem;
   line-height: 2.8125rem;
@@ -4109,6 +4114,10 @@ section.right-small {
 
 .icon-remove, .icon-expand, .icon-contract {
   border-left: solid 1px #6d8091; }
+
+@media only screen and (max-width: 50em) {
+  .icon-contract {
+    display: none; } }
 
 .icon-brightness-contrast:hover {
   color: #FFF; }

@@ -3,6 +3,13 @@
    margin-bottom: 20px;
 }
 
+nav.tab-bar .viewTitle {
+   @media #{$small-only} {
+      text-align: left;
+      font-size: rem-calc(15);
+   }
+}
+
 .barIcon {
    font-size: rem-calc(30);
    line-height: rem-calc(45);
@@ -19,6 +26,12 @@
 .icon-expand,
 .icon-contract {
    border-left: solid 1px #6d8091;
+}
+
+.icon-contract {
+   @media #{$small-only} {
+      display: none;
+   }
 }
 
 .icon-brightness-contrast {
