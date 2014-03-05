@@ -1,0 +1,33 @@
+#bibleText {
+   padding: 0 10px;
+   a {
+      color: lighten($secondary-color, 1%);
+      text-shadow: 2px 1px 1px #BFBFBF;
+      &.xrefLink,
+      &.footnoteLink {
+         display: none;
+      }
+   }
+   .chapterNum {
+      font-size: rem-calc(60);
+      a {
+         color: lighten($secondary-color, 5%);
+      }
+   }
+   .verseNum {
+      font-size: rem-calc(22);
+      text-shadow: 2px 1px 1px #BFBFBF;
+   }
+   .style-b {
+      font-size: rem-calc(20);
+      line-height: rem-calc(30);
+      @media #{$medium-up} {
+         font-size: rem-calc(23);
+         line-height: rem-calc(37);
+      }
+   }
+   sup {
+      top: -0.2em;
+      left: .2em;
+   }
+}

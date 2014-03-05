@@ -1,0 +1,28 @@
+nav.tab-bar .viewTitle {
+   font-size: rem-calc(18);
+   font-weight: 300;
+   @media #{$medium-up} {
+      font-size: rem-calc(25);
+   }
+}
+
+.left-off-canvas-menu {
+   padding-top: 45px;
+}
+
+select {
+   padding: 15px 0 5px 5px;
+   margin-bottom: 40px;
+   font-family: $header-font-family;
+   font-size: rem-calc(22);
+   color: black;
+   border: none;
+   border-bottom: 1px solid #ccc;
+}
+
+section.right-small {
+   width: auto;
+   overflow: hidden;
+   border-left: solid 1px #6d8091;
+   box-shadow: 1px 0 0 #9facb7;
+}

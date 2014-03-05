@@ -6,12 +6,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
       <title>Omnibus Reader</title>
       <!-- build:css css/app.min.css -->
-      <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
       <link rel="stylesheet" href="css/app.css">
-      <link rel="stylesheet" href="css/app_override.css">
       <!-- endbuild -->
 
-      <link href='http://fonts.googleapis.com/css?family=PT+Sans:700|Exo:200|EB+Garamond' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700|Merriweather+Sans:300' rel='stylesheet' type='text/css'>
 
       <!-- build:js js/vendor/modernizr.min.js -->
       <script src="bower_components/modernizr/modernizr.js"></script>
@@ -27,13 +25,13 @@
          </div>
       </div>
 
-   <div id="template">
-         <div class="columns small-16 medium-8 large-4 aView">
+      <div id="template">
+         <div class="aView columns small-16 medium-8">
             <div class="off-canvas-wrap">
                <div class="inner-wrap">
                   <nav class="tab-bar">
                      <section class="left-small">
-                        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+                        <a class="left-off-canvas-toggle" href="#"><span class="barIcon icon-menu"></span></a>
                      </section>
 
                      <section class="middle tab-bar-section">
@@ -41,7 +39,9 @@
                      </section>
 
                      <section class="right-small">
-                        <a class="viewDestroy"><span class="fa fa-times"></span></a>
+                        <a class="viewContrast"><span class="barIcon icon-brightness-contrast"></span></a>
+                        <a class="viewExpand"><span class="iconResize barIcon icon-contract"></span></a>
+                        <a class="viewDestroy"><span class="barIcon icon-remove"></span></a>
                      </section>
                   </nav>
 
@@ -52,7 +52,7 @@
                      </select>
                   </aside>
 
-                  <section class="text-section">
+                  <section class="text-section darkColor">
                         <div id="bibleText" class="verses">
                            <div class="loading">
                              <div class="stick"></div>

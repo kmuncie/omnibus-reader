@@ -279,7 +279,6 @@
          divContent.append(view.divView);
       };
 
-
       this.removeView = function(view) {
          view.divView.remove();
       };
@@ -298,6 +297,10 @@
       this.divLoading = this.divView.find('.loading');
       this.divVerses = this.divView.find('.verses');
       this.viewTitle = this.divView.find('.viewTitle');
+      this.buttonContrast = this.divView.find('.viewContrast');
+      this.textContrast = this.divView.find('.text-section');
+      this.buttonExpand = this.divView.find('.viewExpand');
+      this.iconResize = this.divView.find('.iconResize');
       this.buttonClose = this.divView.find('.viewDestroy');
 
    };
@@ -307,9 +310,37 @@
 
       bindEvents: function(events) {
          var self = this;
+         var isExpanding = false;
+
          this.selectBooks.change(function() {
             var bid = self.selectBooks.val();
             events.viewSelectBook(self, bid);
+         });
+
+         this.buttonContrast.click(function() {
+            self.textContrast.toggleClass('darkMode');
+         });
+
+         this.buttonExpand.click(function() {
+            if (self.divView.hasClass('medium-8 large-4')) {
+               self.divView.removeClass('large-4');
+               return;
+            }
+            if (self.divView.hasClass('medium-8') && isExpanding) {
+               self.divView.removeClass('medium-8');
+               isExpanding = false;
+               return;
+            }
+            if (self.divView.hasClass('medium-8')) {
+               self.divView.addClass('large-4');
+               isExpanding = true;
+            }
+            self.divView.addClass('medium-8');
+
+            if (isExpanding) {
+               self.iconResize.removeClass('icon-contract');
+               self.iconResize.addClass('icon-expand');
+            }
          });
 
          this.buttonClose.click(function() {
@@ -392,7 +423,6 @@
             layout.addView(view);
          },
 
-
          viewDestroy: function(view) {
             layout.removeView(view);
             delete views[views.indexOf(view)];
@@ -436,6 +466,7 @@
        controller = new Controller(layout, fetcher);
 
    controller.ready(function() {
+      controller.layoutAddView();
       controller.layoutAddView();
 
       fetcher.fillCache();

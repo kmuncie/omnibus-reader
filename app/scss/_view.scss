@@ -1,0 +1,70 @@
+
+.aView {
+   margin-bottom: 20px;
+}
+
+.barIcon {
+   font-size: rem-calc(30);
+   line-height: rem-calc(45);
+   width: 2.8125rem;
+   height: 2.8125rem;
+   padding: 8px;
+   color: darken($tabbar-bg, 20%);
+   &:hover {
+      color: $secondary-color;
+   }
+}
+
+.icon-remove,
+.icon-expand,
+.icon-contract {
+   border-left: solid 1px #6d8091;
+}
+
+.icon-brightness-contrast {
+   &:hover {
+      color: #FFF;
+   }
+}
+
+.icon-remove {
+   &:hover {
+      color: $primary-color;
+   }
+}
+
+.text-section {
+   background-color: #EEEEEE;
+   color: #1B1B1B;
+   border: 1px solid #ccc;
+   padding: 20px 15px;
+   .large-4 & {
+      padding: 20px 15px;
+   }
+   @media #{$medium-up} {
+      padding: 30px 40px;
+   }
+}
+
+.darkMode {
+   background-color: #1E1E1E;
+   color: #EAEAEA;
+   #bibleText {
+      a {
+         color: saturate($tabbar-bg, 20%);
+         text-shadow: none;
+      }
+      .chapterNum {
+         a {
+            color: saturate($tabbar-bg, 20%);
+         }
+      }
+      .verseNum {
+         text-shadow: none;
+      }
+   }
+}
+
+#template {
+   display: none;
+}
