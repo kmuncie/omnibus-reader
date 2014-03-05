@@ -16,6 +16,23 @@ Project generated using [Yeoman](http://yeoman.io/index.html) and [generator-zf5
 * Server with LiveReload (127.0.0.1:9000)
 * JSHint
 * Font Awesome
+* [Jetzt (speed reading)](https://github.com/ds300/jetzt)
+
+#### Jetzt Speed Reading Usage
+
+Control is currently keyboard-only.
+
+- Initiate jetzt by selecting some text and pressing `alt+r`.
+
+- Change size with `+`/`-`.
+
+- Go faster/slower with up/down arrow keys.
+
+- Go back/forward a sentence with left/right arrow keys (hold `alt` to navigate by paragraphs).
+
+- Pause with space.
+
+- Close with escape.
 
 #### Grunt tasks:
 
