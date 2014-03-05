@@ -4003,8 +4003,8 @@ th.hide-for-touch {
 
 @font-face {
   font-family: 'omnibus';
-  src: url('fonts/icons/omnibus.eot?vltmnw');
-  src: url('fonts/icons/omnibus.eot?#iefixvltmnw') format('embedded-opentype'), url('fonts/icons/omnibus.woff?vltmnw') format('woff'), url('fonts/icons/omnibus.ttf?vltmnw') format('truetype'), url('fonts/icons/omnibus.svg?vltmnw#omnibus') format('svg');
+  src: url('../fonts/icons/omnibus.eot?vltmnw');
+  src: url('../fonts/icons/omnibus.eot?#iefixvltmnw') format('embedded-opentype'), url('../fonts/icons/omnibus.woff?vltmnw') format('woff'), url('../fonts/icons/omnibus.ttf?vltmnw') format('truetype'), url('../fonts/icons/omnibus.svg?vltmnw#omnibus') format('svg');
   font-weight: normal;
   font-style: normal; }
 
