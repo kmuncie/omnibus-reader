@@ -5,6 +5,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
       <title>Omnibus Reader</title>
+      <link rel="shortcut icon" href="images/favicon-32.ico" />
+      <link rel="apple-touch-icon-precomposed" href="images/favicon-152.png" />
       <!-- build:css css/app.min.css -->
       <link rel="stylesheet" href="css/app.css">
       <!-- endbuild -->
@@ -17,9 +19,6 @@
       <!-- build:js js/vendor/jetzt.min.js -->
       <script src="bower_components/jetzt/jetzt.js"></script>
       <!-- endbuild -->
-      <!-- build:js js/keen.min.js -->
-      <!-- <script src="js/keen.js"></script> -->
-      <!-- endbuild -->
       <script type="text/javascript">
          var heap=heap||[];heap.load=function(a){window._heapid=a;var b=document.createElement("script");b.type="text/javascript",b.async=!0,b.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.heapanalytics.com/js/heap.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d=function(a){return function(){heap.push([a].concat(Array.prototype.slice.call(arguments,0)))}},e=["identify","track"];for(var f=0;f<e.length;f++)heap[e[f]]=d(e[f])};
          heap.load("1952266129");
@@ -28,10 +27,9 @@
    <body>
 
       <div class="row">
-         <div class="small-14 small-centered large-12 large-centered columns panel clearfix">
+         <div class="small-14 small-centered large-12 large-centered columns clearfix">
             <h1 class="siteTitle">Omnibus Reader</h1>
-            <a class="button right NewReaderButton" id="addNew"><span class="fa fa-plus"></span> Add Reader</a>
-
+            <a class="button right NewReaderButton" id="addNew"><span class="icon-plus"></span> Add Reader</a>
          </div>
       </div>
 

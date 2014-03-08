@@ -1,3 +1,12 @@
+.siteLogo {
+   @media #{$small-only} {
+      display: none;
+   }
+   float: left;
+   max-height: 60px;
+   margin: .5rem .5rem 0 0;
+}
+
 .siteTitle {
    @media #{$small-only} {
       font-size: rem-calc(23);
@@ -13,12 +22,13 @@
       padding-right: 0;
       padding-left: 0;
       width: 100%;
+      margin-top: 0;
    }
    padding-top: 0.5rem;
    padding-right: 1rem;
    padding-bottom: 0.5625rem;
    padding-left: 1rem;
-   margin-top: 0.2rem;
+   margin-top: 1rem;
    font-size: 0.8125rem;
    @media #{$medium-up} {
       padding-top: 1rem;

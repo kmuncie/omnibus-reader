@@ -9,18 +9,24 @@
       }
    }
    .chapterNum {
-      font-size: rem-calc(60);
+      font-size: rem-calc(45);
+      @media #{$medium-up} {
+         font-size: rem-calc(55);
+      }
       a {
          color: lighten($secondary-color, 5%);
       }
    }
    .verseNum {
-      font-size: rem-calc(22);
+      font-size: rem-calc(17);
       text-shadow: 2px 1px 1px #BFBFBF;
+      @media #{$medium-up} {
+         font-size: rem-calc(22);
+      }
    }
    .style-b {
-      font-size: rem-calc(20);
-      line-height: rem-calc(30);
+      font-size: rem-calc(18);
+      line-height: rem-calc(28);
       @media #{$medium-up} {
          font-size: rem-calc(23);
          line-height: rem-calc(37);

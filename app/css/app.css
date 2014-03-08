@@ -428,8 +428,8 @@ select {
     margin-right: 0; }
   .row .row {
     width: auto;
-    margin-left: -0.9375rem;
-    margin-right: -0.9375rem;
+    margin-left: -0.3125rem;
+    margin-right: -0.3125rem;
     margin-top: 0;
     margin-bottom: 0;
     max-width: none;
@@ -451,8 +451,8 @@ select {
         clear: both; }
 
 .column, .columns {
-  padding-left: 0.9375rem;
-  padding-right: 0.9375rem;
+  padding-left: 0.3125rem;
+  padding-right: 0.3125rem;
   width: 100%;
   float: left; }
 
@@ -565,8 +565,8 @@ select {
     left: auto; }
   .column, .columns {
     position: relative;
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+    padding-left: 0.3125rem;
+    padding-right: 0.3125rem;
     float: left; }
   .small-1 {
     width: 6.25%; }
@@ -752,8 +752,8 @@ select {
     left: auto; }
   .column, .columns {
     position: relative;
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+    padding-left: 0.3125rem;
+    padding-right: 0.3125rem;
     float: left; }
   .medium-1 {
     width: 6.25%; }
@@ -1035,8 +1035,8 @@ select {
     left: auto; }
   .column, .columns {
     position: relative;
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
+    padding-left: 0.3125rem;
+    padding-right: 0.3125rem;
     float: left; }
   .large-1 {
     width: 6.25%; }
@@ -1233,7 +1233,7 @@ select {
         background: #e3e3e3; }
   .accordion .content {
     display: none;
-    padding: 0.9375rem; }
+    padding: 0.3125rem; }
     .accordion .content.active {
       display: block;
       background: #fff; }
@@ -4041,6 +4041,14 @@ th.hide-for-touch {
 .icon-brightness-contrast:before {
   content: "\e606"; }
 
+.siteLogo {
+  float: left;
+  max-height: 60px;
+  margin: 0.5rem 0.5rem 0 0; }
+  @media only screen and (max-width: 50em) {
+    .siteLogo {
+      display: none; } }
+
 @media only screen and (max-width: 50em) {
   .siteTitle {
     font-size: 1.4375rem;
@@ -4054,13 +4062,14 @@ th.hide-for-touch {
   padding-right: 1rem;
   padding-bottom: 0.5625rem;
   padding-left: 1rem;
-  margin-top: 0.2rem;
+  margin-top: 1rem;
   font-size: 0.8125rem; }
   @media only screen and (max-width: 50em) {
     .NewReaderButton {
       padding-right: 0;
       padding-left: 0;
-      width: 100%; } }
+      width: 100%;
+      margin-top: 0; } }
   @media only screen and (min-width:50.063em) {
     .NewReaderButton {
       padding-top: 1rem;
@@ -4134,7 +4143,7 @@ section.right-small {
     padding: 20px 15px; }
   @media only screen and (min-width:50.063em) {
     .text-section {
-      padding: 30px 40px; } }
+      padding: 30px 25px; } }
 
 .darkMode {
   background-color: #1E1E1E;
@@ -4158,15 +4167,21 @@ section.right-small {
     #bibleText a.xrefLink, #bibleText a.footnoteLink {
       display: none; }
   #bibleText .chapterNum {
-    font-size: 3.75rem; }
+    font-size: 2.8125rem; }
+    @media only screen and (min-width:50.063em) {
+      #bibleText .chapterNum {
+        font-size: 3.4375rem; } }
     #bibleText .chapterNum a {
       color: #648f4a; }
   #bibleText .verseNum {
-    font-size: 1.375rem;
+    font-size: 1.0625rem;
     text-shadow: 2px 1px 1px #BFBFBF; }
+    @media only screen and (min-width:50.063em) {
+      #bibleText .verseNum {
+        font-size: 1.375rem; } }
   #bibleText .style-b {
-    font-size: 1.25rem;
-    line-height: 1.875rem; }
+    font-size: 1.125rem;
+    line-height: 1.75rem; }
     @media only screen and (min-width:50.063em) {
       #bibleText .style-b {
         font-size: 1.4375rem;
