@@ -4003,8 +4003,8 @@ th.hide-for-touch {
 
 @font-face {
   font-family: 'omnibus';
-  src: url('../fonts/icons/omnibus.eot?vltmnw');
-  src: url('../fonts/icons/omnibus.eot?#iefixvltmnw') format('embedded-opentype'), url('../fonts/icons/omnibus.woff?vltmnw') format('woff'), url('../fonts/icons/omnibus.ttf?vltmnw') format('truetype'), url('../fonts/icons/omnibus.svg?vltmnw#omnibus') format('svg');
+  src: url('../fonts/icons/omnibus.eot?-nfu8ex');
+  src: url('../fonts/icons/omnibus.eot?#iefix-nfu8ex') format('embedded-opentype'), url('../fonts/icons/omnibus.woff?-nfu8ex') format('woff'), url('../fonts/icons/omnibus.ttf?-nfu8ex') format('truetype'), url('../fonts/icons/omnibus.svg?-nfu8ex#omnibus') format('svg');
   font-weight: normal;
   font-style: normal; }
 
@@ -4026,20 +4026,23 @@ th.hide-for-touch {
 .icon-contract:before {
   content: "\e601"; }
 
-.icon-menu:before {
-  content: "\e602"; }
-
 .icon-plus:before {
   content: "\e603"; }
 
-.icon-copy:before {
-  content: "\e604"; }
-
-.icon-remove:before {
+.icon-trash:before {
   content: "\e605"; }
 
-.icon-brightness-contrast:before {
+.icon-colorMode:before {
   content: "\e606"; }
+
+.icon-menu:before {
+  content: "\e604"; }
+
+.icon-hamburger:before {
+  content: "\e602"; }
+
+.icon-arrow-down:after {
+  content: "\e607"; }
 
 .siteLogo {
   float: left;
@@ -4078,24 +4081,27 @@ th.hide-for-touch {
       padding-left: 1.5rem;
       font-size: 1rem; } }
 
-nav.tab-bar .viewTitle {
-  font-size: 1.125rem;
-  font-weight: 300; }
-  @media only screen and (min-width:50.063em) {
-    nav.tab-bar .viewTitle {
-      font-size: 1.5625rem; } }
-
-.left-off-canvas-menu {
-  padding-top: 45px; }
-
 select {
-  padding: 15px 0 5px 5px;
-  margin-bottom: 40px;
-  font-family: "Merriweather Sans", 'Quattrocento', serif;
-  font-size: 1.375rem;
-  color: black;
+  width: auto;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
   border: none;
-  border-bottom: 1px solid #ccc; }
+  outline: none; }
+
+.sel-book, .sel-chapter {
+  padding-right: 5px;
+  margin-top: 5px;
+  font-family: "Merriweather Sans", 'Quattrocento', serif;
+  font-size: 1.5625rem;
+  background: #919FAC;
+  color: white;
+  float: left;
+  border-right: 1px dotted #5F707E; }
+
+.sel-chapter {
+  padding-left: 10px; }
 
 section.right-small {
   width: auto;
@@ -4121,29 +4127,27 @@ section.right-small {
   .barIcon:hover {
     color: #587E41; }
 
-.icon-remove, .icon-expand, .icon-contract {
+.icon-trash, .icon-expand, .icon-contract {
   border-left: solid 1px #6d8091; }
 
 @media only screen and (max-width: 50em) {
   .icon-contract {
     display: none; } }
 
-.icon-brightness-contrast:hover {
+.icon-colorMode:hover {
   color: #FFF; }
 
-.icon-remove:hover {
+.icon-trash:hover {
   color: #b64848; }
 
 .text-section {
   background-color: #EEEEEE;
   color: #1B1B1B;
   border: 1px solid #ccc;
-  padding: 20px 15px; }
-  .large-4 .text-section {
-    padding: 20px 15px; }
+  padding: 0 15px 20px; }
   @media only screen and (min-width:50.063em) {
     .text-section {
-      padding: 30px 25px; } }
+      padding: 0 25px 30px; } }
 
 .darkMode {
   background-color: #1E1E1E;
@@ -4160,7 +4164,7 @@ section.right-small {
   display: none; }
 
 #bibleText {
-  padding: 0 10px; }
+  padding: 20px 10px; }
   #bibleText a {
     color: #5b8143;
     text-shadow: 2px 1px 1px #BFBFBF; }

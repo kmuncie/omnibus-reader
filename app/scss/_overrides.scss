@@ -1,23 +1,47 @@
-nav.tab-bar .viewTitle {
-   font-size: rem-calc(18);
-   font-weight: 300;
-   @media #{$medium-up} {
-      font-size: rem-calc(25);
-   }
-}
+// nav.tab-bar .viewTitle {
+//    font-size: rem-calc(18);
+//    font-weight: 300;
+//    float: left;
+//    margin-right: 15px;
+//    @media #{$medium-up} {
+//       font-size: rem-calc(25);
+//    }
+// }
 
-.left-off-canvas-menu {
-   padding-top: 45px;
-}
+// .left-off-canvas-menu {
+//    padding-top: 45px;
+// }
+
+// .bibleNav {
+//    display: block;
+//    height: 50px;
+//    clear: both;
+//    margin-bottom: 15px;
+// }
 
 select {
-   padding: 15px 0 5px 5px;
-   margin-bottom: 40px;
+   width: auto;
+   -webkit-appearance:none;
+   -moz-appearance:none;
+   appearance:none;
+   cursor:pointer;
+   border:none;
+   outline:none;
+}
+
+.sel-book {
+   padding-right: 5px;
+   margin-top: 5px;
    font-family: $header-font-family;
-   font-size: rem-calc(22);
-   color: black;
-   border: none;
-   border-bottom: 1px solid #ccc;
+   font-size: rem-calc(25);
+   background: #919FAC;
+   color: white;
+   float: left;
+   border-right: 1px dotted #5F707E;
+}
+.sel-chapter {
+   @extend .sel-book;
+   padding-left: 10px;
 }
 
 section.right-small {

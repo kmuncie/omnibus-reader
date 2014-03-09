@@ -38,29 +38,32 @@
             <div class="off-canvas-wrap">
                <div class="inner-wrap">
                   <nav class="tab-bar">
-                     <section class="left-small">
+ <!--                     <section class="left-small">
                         <a class="left-off-canvas-toggle" href="#"><span class="barIcon icon-menu"></span></a>
-                     </section>
+                     </section> -->
 
-                     <section class="middle tab-bar-section">
-                        <h2 class="viewTitle">Genesis <span class="chapNum">1</span></h2>
+                     <section class="left tab-bar-section">
+                        <!-- <h2 class="viewTitle">Genesis <span class="chapNum">1</span></h2> -->
+                        <select class='sel-book' name="Bible Book"></select>
+                        <select class='sel-chapter' name="Book Chapter"></select>
                      </section>
 
                      <section class="right-small">
-                        <a class="viewContrast"><span class="barIcon icon-brightness-contrast"></span></a>
+                        <a class="viewContrast"><span class="barIcon icon-colorMode"></span></a>
                         <a class="viewExpand"><span class="iconResize barIcon icon-contract"></span></a>
-                        <a class="viewDestroy"><span class="barIcon icon-remove"></span></a>
+                        <a class="viewDestroy"><span class="barIcon icon-trash"></span></a>
                      </section>
                   </nav>
 
-                  <aside class="left-off-canvas-menu">
-                     <select class='sel-book' name="Bible Book">
-                     </select>
-                     <select class='sel-chapter' name="Book Chapter">
-                     </select>
-                  </aside>
-
+ <!--                  <aside class="left-off-canvas-menu">
+                     <ul class='dial sel-book' name="Bible Book"></ul>
+                     <ul class='dial sel-chapter' name="Book Chapter"></ul>
+                  </aside> -->
                   <section class="text-section darkColor">
+<!--                      <div class="bibleNav">
+                        <select class='sel-book' name="Bible Book"></select>
+                        <select class='sel-chapter' name="Book Chapter"></select>
+                     </div> -->
                         <div id="bibleText" class="verses">
                            <div class="loading">
                              <div class="stick"></div>
@@ -91,8 +94,13 @@
       <script src="bower_components/jquery/dist/jquery.js"></script>
       <!-- endbuild -->
 
+      <!-- build:js js/vendor/waypoints.min.js -->
+      <!-- <script src="bower_components/waypoints/waypoints.js"></script> -->
+      <!-- endbuild -->
+
       <!-- build:js js/foundation/foundation.min.js -->
       <script src="bower_components/foundation/js/foundation.js"></script>
+      <!-- <script src="bower_components/foundation/js/foundation/foundation.magellan.js"></script> -->
       <!-- endbuild -->
 
       <!-- build:js js/app.min.js -->

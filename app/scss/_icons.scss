@@ -1,10 +1,10 @@
 @font-face {
    font-family: 'omnibus';
-   src:url('../fonts/icons/omnibus.eot?vltmnw');
-   src:url('../fonts/icons/omnibus.eot?#iefixvltmnw') format('embedded-opentype'),
-      url('../fonts/icons/omnibus.woff?vltmnw') format('woff'),
-      url('../fonts/icons/omnibus.ttf?vltmnw') format('truetype'),
-      url('../fonts/icons/omnibus.svg?vltmnw#omnibus') format('svg');
+   src:url('../fonts/icons/omnibus.eot?-nfu8ex');
+   src:url('../fonts/icons/omnibus.eot?#iefix-nfu8ex') format('embedded-opentype'),
+      url('../fonts/icons/omnibus.woff?-nfu8ex') format('woff'),
+      url('../fonts/icons/omnibus.ttf?-nfu8ex') format('truetype'),
+      url('../fonts/icons/omnibus.svg?-nfu8ex#omnibus') format('svg');
    font-weight: normal;
    font-style: normal;
 }
@@ -29,18 +29,21 @@
 .icon-contract:before {
    content: "\e601";
 }
-.icon-menu:before {
-   content: "\e602";
-}
 .icon-plus:before {
    content: "\e603";
 }
-.icon-copy:before {
-   content: "\e604";
-}
-.icon-remove:before {
+.icon-trash:before {
    content: "\e605";
 }
-.icon-brightness-contrast:before {
+.icon-colorMode:before {
    content: "\e606";
+}
+.icon-menu:before {
+   content: "\e604";
+}
+.icon-hamburger:before {
+   content: "\e602";
+}
+.icon-arrow-down:after {
+   content: "\e607";
 }

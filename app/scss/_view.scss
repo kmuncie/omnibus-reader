@@ -22,7 +22,7 @@ nav.tab-bar .viewTitle {
    }
 }
 
-.icon-remove,
+.icon-trash,
 .icon-expand,
 .icon-contract {
    border-left: solid 1px #6d8091;
@@ -34,13 +34,13 @@ nav.tab-bar .viewTitle {
    }
 }
 
-.icon-brightness-contrast {
+.icon-colorMode {
    &:hover {
       color: #FFF;
    }
 }
 
-.icon-remove {
+.icon-trash {
    &:hover {
       color: $primary-color;
    }
@@ -50,12 +50,9 @@ nav.tab-bar .viewTitle {
    background-color: #EEEEEE;
    color: #1B1B1B;
    border: 1px solid #ccc;
-   padding: 20px 15px;
-   .large-4 & {
-      padding: 20px 15px;
-   }
+   padding: 0 15px 20px;
    @media #{$medium-up} {
-      padding: 30px 25px;
+      padding: 0 25px 30px;
    }
 }
 
