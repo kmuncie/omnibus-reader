@@ -4164,7 +4164,13 @@ section.right-small {
   display: none; }
 
 #bibleText {
-  padding: 20px 10px; }
+  padding: 20px 10px;
+  font-size: 1.125rem;
+  line-height: 1.75rem; }
+  @media only screen and (min-width:50.063em) {
+    #bibleText {
+      font-size: 1.4375rem;
+      line-height: 2.3125rem; } }
   #bibleText a {
     color: #5b8143;
     text-shadow: 2px 1px 1px #BFBFBF; }
@@ -4183,13 +4189,17 @@ section.right-small {
     @media only screen and (min-width:50.063em) {
       #bibleText .verseNum {
         font-size: 1.375rem; } }
-  #bibleText .style-b {
-    font-size: 1.125rem;
-    line-height: 1.75rem; }
-    @media only screen and (min-width:50.063em) {
-      #bibleText .style-b {
-        font-size: 1.4375rem;
-        line-height: 2.3125rem; } }
+  #bibleText .parabreak {
+    display: block;
+    height: 0; }
+  #bibleText .style-l {
+    display: inline;
+    padding: 0;
+    text-indent: 0; }
+  #bibleText .style-z {
+    text-indent: -1.5em;
+    padding-left: 3em;
+    display: block; }
   #bibleText sup {
     top: -0.2em;
     left: 0.2em; }

@@ -362,7 +362,7 @@
 
          for (i = 0; i < books.length; i++) {
             book = books[i];
-            this.selectBooks.append('<option value="' + book.bookNum + '">' + book.standardName + '</option>');
+            this.selectBooks.append('<option value="' + book.bookNum + '">' + book.standardAbbreviation + '</option>');
          }
       },
 
