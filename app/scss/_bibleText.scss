@@ -1,7 +1,9 @@
 #bibleText {
-   padding: 20px 10px;
+   padding: 0 10px 20px 10px;
    font-size: rem-calc(18);
    line-height: rem-calc(28);
+   position: relative;
+   z-index: 50;
    @media #{$medium-up} {
       font-size: rem-calc(23);
       line-height: rem-calc(37);

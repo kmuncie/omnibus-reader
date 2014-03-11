@@ -3,10 +3,21 @@
    margin-bottom: 20px;
 }
 
-nav.tab-bar .viewTitle {
-   @media #{$small-only} {
-      text-align: left;
-      font-size: rem-calc(15);
+.viewBookName {
+   position: relative;
+   text-align: right;
+   font-size: rem-calc(35);
+   line-height: rem-calc(30);
+   color: #E4E4E4;
+   text-shadow: 1px 1px 10px #E4E4E4;
+   z-index: 1;
+   @media #{$medium} {
+      font-size: rem-calc(40);
+      line-height: rem-calc(35);
+   }
+   @media #{$large} {
+      font-size: rem-calc(50);
+      line-height: rem-calc(45);
    }
 }
 
@@ -22,10 +33,11 @@ nav.tab-bar .viewTitle {
    }
 }
 
-.icon-trash,
-.icon-expand,
-.icon-contract {
+.icon-trash {
    border-left: solid 1px #6d8091;
+   @media #{$small-only} {
+      border-left: none;
+   }
 }
 
 .icon-contract {
@@ -56,25 +68,3 @@ nav.tab-bar .viewTitle {
    }
 }
 
-.darkMode {
-   background-color: #1E1E1E;
-   color: #EAEAEA;
-   #bibleText {
-      a {
-         color: saturate($tabbar-bg, 20%);
-         text-shadow: none;
-      }
-      .chapterNum {
-         a {
-            color: saturate($tabbar-bg, 20%);
-         }
-      }
-      .verseNum {
-         text-shadow: none;
-      }
-   }
-}
-
-#template {
-   display: none;
-}

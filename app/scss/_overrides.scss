@@ -1,12 +1,6 @@
-// nav.tab-bar .viewTitle {
-//    font-size: rem-calc(18);
-//    font-weight: 300;
-//    float: left;
-//    margin-right: 15px;
-//    @media #{$medium-up} {
-//       font-size: rem-calc(25);
-//    }
-// }
+nav.tab-bar {
+   z-index: 10;
+}
 
 // .left-off-canvas-menu {
 //    padding-top: 45px;
