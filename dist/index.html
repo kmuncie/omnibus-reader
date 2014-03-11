@@ -4,7 +4,7 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-      <title>Omnibus Reader</title>
+      <title>An Omnibus - Bible Reader</title>
       <link rel="shortcut icon" href="images/favicon-32.ico" />
       <link rel="apple-touch-icon-precomposed" href="images/favicon-152.png" />
       <link rel="stylesheet" href="css/app.min.css"/>
@@ -18,61 +18,42 @@
          heap.load("1952266129");
       </script>
    </head>
-   <body>
+   <body class="entirePage">
 
       <div class="row">
          <div class="small-14 small-centered large-12 large-centered columns clearfix">
-            <h1 class="siteTitle">Omnibus Reader</h1>
+            <h1 class="siteTitle"><span class="light">An</span>omnibus</h1>
+            <a class="button right colorMode"><span class="icon-colorMode"></span></a>
             <a class="button right NewReaderButton" id="addNew"><span class="icon-plus"></span> Add Reader</a>
          </div>
       </div>
 
       <div id="template">
          <div class="aView columns small-16 medium-8">
-            <div class="off-canvas-wrap">
-               <div class="inner-wrap">
-                  <nav class="tab-bar">
- <!--                     <section class="left-small">
-                        <a class="left-off-canvas-toggle" href="#"><span class="barIcon icon-menu"></span></a>
-                     </section> -->
+            <nav class="tab-bar">
+               <section class="left tab-bar-section">
+                  <select class='sel-book' name="Bible Book"></select>
+                  <select class='sel-chapter' name="Book Chapter"></select>
+               </section>
 
-                     <section class="left tab-bar-section">
-                        <!-- <h2 class="viewTitle">Genesis <span class="chapNum">1</span></h2> -->
-                        <select class='sel-book' name="Bible Book"></select>
-                        <select class='sel-chapter' name="Book Chapter"></select>
-                     </section>
-
-                     <section class="right-small">
-                        <a class="viewContrast"><span class="barIcon icon-colorMode"></span></a>
-                        <a class="viewExpand"><span class="iconResize barIcon icon-contract"></span></a>
-                        <a class="viewDestroy"><span class="barIcon icon-trash"></span></a>
-                     </section>
-                  </nav>
-
- <!--                  <aside class="left-off-canvas-menu">
-                     <ul class='dial sel-book' name="Bible Book"></ul>
-                     <ul class='dial sel-chapter' name="Book Chapter"></ul>
-                  </aside> -->
-                  <section class="text-section darkColor">
-<!--                      <div class="bibleNav">
-                        <select class='sel-book' name="Bible Book"></select>
-                        <select class='sel-chapter' name="Book Chapter"></select>
-                     </div> -->
-                        <div id="bibleText" class="verses">
-                           <div class="loading">
-                             <div class="stick"></div>
-                             <div class="stick"></div>
-                             <div class="stick"></div>
-                             <div class="stick"></div>
-                             <div class="stick"></div>
-                             <div class="stick"></div>
-                           </div>
-                        </div>
-                  </section>
-
-                  <a class="exit-off-canvas"></a>
-               </div>
-            </div>
+               <section class="right-small">
+                  <a class="viewExpand"><span class="iconResize barIcon icon-contract"></span></a>
+                  <a class="viewDestroy"><span class="barIcon icon-trash"></span></a>
+               </section>
+            </nav>
+            <section class="text-section darkColor">
+            <h1 class="viewBookName"></h1>
+                  <div id="bibleText" class="verses">
+                     <div class="loading">
+                       <div class="stick"></div>
+                       <div class="stick"></div>
+                       <div class="stick"></div>
+                       <div class="stick"></div>
+                       <div class="stick"></div>
+                       <div class="stick"></div>
+                     </div>
+                  </div>
+            </section>
          </div>
       </div>
 
