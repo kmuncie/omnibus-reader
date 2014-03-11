@@ -296,9 +296,7 @@
       this.selectChapter = this.divView.find('.sel-chapter');
       this.divLoading = this.divView.find('.loading');
       this.divVerses = this.divView.find('.verses');
-      this.viewTitle = this.divView.find('.viewTitle');
-      this.buttonContrast = this.divView.find('.viewContrast');
-      this.textContrast = this.divView.find('.text-section');
+      this.viewTitle = this.divView.find('.viewBookName');
       this.buttonExpand = this.divView.find('.viewExpand');
       this.iconResize = this.divView.find('.iconResize');
       this.buttonClose = this.divView.find('.viewDestroy');
@@ -315,10 +313,6 @@
          this.selectBooks.change(function() {
             var bid = self.selectBooks.val();
             events.viewSelectBook(self, bid);
-         });
-
-         this.buttonContrast.click(function() {
-            self.textContrast.toggleClass('darkMode');
          });
 
          this.buttonExpand.click(function() {
