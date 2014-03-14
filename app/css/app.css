@@ -4303,6 +4303,7 @@ section.right-small {
 */
 .sr-reader {
   position: fixed;
+  z-index: 9999;
   top: -50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
