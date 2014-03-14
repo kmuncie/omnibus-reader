@@ -315,12 +315,12 @@
       this.bindEvents = function(events) {
          divAddNew.click(function() {
             events.layoutAddView();
-         if (view_count == 2) {
-            $('.aView').removeClass('small-centered');
-         } else
-               if (view_count == 1) {
-                  $('.aView').addClass('small-centered');
-               }
+            if (view_count === 2) {
+               $('.aView').removeClass('small-centered');
+            } else
+            if (view_count === 1) {
+               $('.aView').addClass('small-centered');
+            }
          });
       };
 
@@ -331,7 +331,7 @@
 
       this.removeView = function(view) {
          view.divView.remove();
-         if (view_count == 1) {
+         if (view_count === 1) {
             $('.aView').addClass('small-centered');
          }
       };
