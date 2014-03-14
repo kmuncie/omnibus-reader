@@ -315,6 +315,12 @@
       this.bindEvents = function(events) {
          divAddNew.click(function() {
             events.layoutAddView();
+         if (view_count == 2) {
+            $('.aView').removeClass('small-centered');
+         } else
+               if (view_count == 1) {
+                  $('.aView').addClass('small-centered');
+               }
          });
       };
 
@@ -325,6 +331,9 @@
 
       this.removeView = function(view) {
          view.divView.remove();
+         if (view_count == 1) {
+            $('.aView').addClass('small-centered');
+         }
       };
    };
 
@@ -352,7 +361,7 @@
 
       bindEvents: function(events) {
          var self = this;
-         var isExpanding = false;
+         var isExpanding = true;
 
          this.selectBooks.change(function() {
             var bid = self.selectBooks.val();
@@ -366,6 +375,8 @@
             }
             if (self.divView.hasClass('medium-8') && isExpanding) {
                self.divView.removeClass('medium-8');
+               self.iconResize.removeClass('icon-expand');
+               self.iconResize.addClass('icon-contract');
                isExpanding = false;
                return;
             }
@@ -375,9 +386,12 @@
             }
             self.divView.addClass('medium-8');
 
-            if (isExpanding) {
-               self.iconResize.removeClass('icon-contract');
+            if (!isExpanding) {
+               self.iconResize.removeClass('icon-expand');
+               self.iconResize.addClass('icon-contract');
+            } else {
                self.iconResize.addClass('icon-expand');
+               self.iconResize.removeClass('icon-contract');
             }
          });
 
@@ -458,10 +472,13 @@
             view.populateBookList(booklist);
             events.viewSelectBook(view, 1, 1);
             view.bindEvents(events);
+            console.log(view_count);
             layout.addView(view);
          },
 
          viewDestroy: function(view) {
+            view_count = --view_count;
+            console.log(view_count);
             layout.removeView(view);
             delete views[views.indexOf(view)];
          },
@@ -513,7 +530,6 @@
 
    controller = new Controller(layout, fetcher);
    controller.ready(function() {
-      controller.layoutAddView();
       controller.layoutAddView();
    });
 
