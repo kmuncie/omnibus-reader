@@ -2,26 +2,20 @@
    display: none;
 }
 
-.siteLogo {
-   @media #{$small-only} {
-      display: none;
-   }
-   float: left;
-   max-height: 60px;
-   margin: .5rem .5rem 0 0;
-}
-
-.light {
-   color: lighten($header-font-color, 55%);
-}
-
 .siteTitle {
    @media #{$small-only} {
       font-size: rem-calc(23);
       text-align: center;
    }
+   @media #{$medium} {
+      font-size: rem-calc(40);
+   }
    @media #{$medium-up} {
       float: left !important;
+      line-height: rem-calc(70);
+   }
+   @media #{$large} {
+      font-size: rem-calc(55);
    }
 }
 
@@ -96,7 +90,7 @@
       color: lighten($header-font-color, 30%);
    }
    .viewBookName {
-      color: #313131;
+      color: #4A4A4A;
       text-shadow: none;
    }
    nav.tab-bar,

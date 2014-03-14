@@ -1,6 +1,6 @@
 #bibleText {
    padding: 0 10px 20px 10px;
-   font-size: rem-calc(18);
+   font-size: rem-calc(20);
    line-height: rem-calc(28);
    position: relative;
    z-index: 50;
@@ -10,16 +10,19 @@
    }
    a {
       color: lighten($secondary-color, 1%);
-      text-shadow: 2px 1px 1px #BFBFBF;
+      text-shadow: 1px 0 0 #7F7F7F;
       &.xrefLink,
       &.footnoteLink {
          display: none;
       }
+      &:hover {
+         text-shadow: 2px 0 0 #000;
+      }
    }
    .chapterNum {
-      font-size: rem-calc(45);
+      font-size: rem-calc(55);
       @media #{$medium-up} {
-         font-size: rem-calc(55);
+         font-size: rem-calc(65);
       }
       a {
          color: lighten($secondary-color, 5%);
@@ -27,7 +30,7 @@
    }
    .verseNum {
       font-size: rem-calc(17);
-      text-shadow: 2px 1px 1px #BFBFBF;
+      text-shadow: 1px 0 0 #595959;
       @media #{$medium-up} {
          font-size: rem-calc(22);
       }
