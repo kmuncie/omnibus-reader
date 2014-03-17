@@ -12,6 +12,8 @@
 
       <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700|Merriweather+Sans:300' rel='stylesheet' type='text/css'>
 
+      <!-- <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Libre+Baskerville:400:f"> -->
+
       <script src="js/vendor/modernizr.min.js"></script>
       <script src="js/vendor/jetzt.min.js"></script>
       <script type="text/javascript">
@@ -33,13 +35,17 @@
          <div class="aView columns small-centered small-16 medium-8">
             <nav class="tab-bar">
                <section class="left tab-bar-section">
-                  <select class='sel-book' name="Bible Book"></select>
-                  <select class='sel-chapter' name="Book Chapter"></select>
+                  <label>
+                     <select class='sel-book' name="Bible Book"></select>
+                  </label>
+                  <label>
+                     <select class='sel-chapter' name="Book Chapter"></select>
+                  </label>
                </section>
 
                <section class="right-small">
                   <a class="viewExpand"><span class="iconResize barIcon icon-expand"></span></a>
-                  <a class="viewDestroy"><span class="barIcon icon-trash"></span></a>
+                  <a class="viewDestroy"><span class="barIcon icon-close"></span></a>
                </section>
             </nav>
             <section class="text-section darkColor">
