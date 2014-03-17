@@ -59,6 +59,7 @@
                if (data.editionData.books.hasOwnProperty(num)) {
                   book = data.editionData.books[num];
                   book.bookNum = parseInt(num, 10);
+                  book.chapterCount = parseInt(book.chapterCount, 10);
                   books.push(book);
                }
             }
@@ -421,7 +422,7 @@
 
       populateChapterList: function(lastChapter) {
          this.selectChapter.empty();
-         for (var i = 1; i < lastChapter; i++) {
+         for (var i = 1; i <= lastChapter; i++) {
             this.selectChapter.append('<option value="' + i + '">' + i + '</option>');
          }
       },
@@ -521,7 +522,7 @@
    layout = new Layout(),
 
    fetcher = (function() {
-      if (!window.indexedDB) {
+      if (true || !window.indexedDB) {
          return new BasicFetcher();
       }
 
