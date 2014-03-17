@@ -4003,8 +4003,8 @@ th.hide-for-touch {
 
 @font-face {
   font-family: 'omnibus';
-  src: url('../fonts/icons/omnibus.eot?-nfu8ex');
-  src: url('../fonts/icons/omnibus.eot?#iefix-nfu8ex') format('embedded-opentype'), url('../fonts/icons/omnibus.woff?-nfu8ex') format('woff'), url('../fonts/icons/omnibus.ttf?-nfu8ex') format('truetype'), url('../fonts/icons/omnibus.svg?-nfu8ex#omnibus') format('svg');
+  src: url('../fonts/icons/omnibus.eot?-jybvw');
+  src: url('../fonts/icons/omnibus.eot?#iefix-jybvw') format('embedded-opentype'), url('../fonts/icons/omnibus.woff?-jybvw') format('woff'), url('../fonts/icons/omnibus.ttf?-jybvw') format('truetype'), url('../fonts/icons/omnibus.svg?-jybvw#omnibus') format('svg');
   font-weight: normal;
   font-style: normal; }
 
@@ -4029,19 +4029,19 @@ th.hide-for-touch {
 .icon-plus:before {
   content: "\e603"; }
 
-.icon-trash:before {
-  content: "\e605"; }
-
 .icon-colorMode:before {
   content: "\e606"; }
 
 .icon-menu:before {
   content: "\e604"; }
 
-.icon-hamburger:before {
+.icon-close:before {
+  content: "\e605"; }
+
+.icon-rocket:before {
   content: "\e602"; }
 
-.icon-arrow-down:after {
+.icon-arrow-down:before {
   content: "\e607"; }
 
 #template {
@@ -4129,7 +4129,12 @@ th.hide-for-touch {
     text-shadow: none; }
   .darkMode nav.tab-bar, .darkMode select {
     background: #404040;
-    color: #ccc; }
+    color: #ccc;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; }
+  .darkMode select {
+    background: #2C2C2C; }
   .darkMode .barIcon {
     color: #6F6F6F; }
   .darkMode section.right-small, .darkMode .barIcon {
@@ -4152,25 +4157,45 @@ nav.tab-bar {
 
 select {
   width: auto;
+  padding: 0 30px 0 0;
+  margin: 5px 0 0 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  font-family: "Merriweather Sans", 'Quattrocento', serif;
+  font-size: 1.5625rem;
+  -webkit-box-shadow: 1px 2px 0 #677989, 0 -1px #8293a1 inset;
+  -moz-box-shadow: 1px 2px 0 #677989, 0 -1px #8293a1 inset;
+  box-shadow: 1px 2px 0 #677989, 0 -1px #8293a1 inset;
+  background: #748696;
+  color: #F0F0F0;
+  border: none;
+  outline: none;
+  display: inline-block;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  cursor: pointer;
-  border: none;
-  outline: none; }
+  cursor: pointer; }
 
-.sel-book, .sel-chapter {
-  padding-right: 5px;
-  margin-top: 5px;
-  font-family: "Merriweather Sans", 'Quattrocento', serif;
-  font-size: 1.5625rem;
-  background: #919FAC;
-  color: white;
-  float: left;
-  border-right: 1px dotted #5F707E; }
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select {
+    padding-right: 40px; } }
 
-.sel-chapter {
-  padding-left: 10px; }
+label {
+  position: relative; }
+  label:after {
+    content: '<>';
+    font-size: 1.25rem;
+    font-family: "Consolas", monospace;
+    color: #47535d;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    right: 4px;
+    border-bottom: 1px solid #47535d;
+    position: absolute;
+    pointer-events: none; }
 
 section.right-small {
   width: auto;
@@ -4208,20 +4233,20 @@ section.right-small {
   .barIcon:hover {
     color: #B89F12; }
 
-.icon-trash {
+.icon-close {
   border-left: solid 1px #6d8091; }
   @media only screen and (max-width: 50em) {
-    .icon-trash {
+    .icon-close {
       border-left: none; } }
 
 @media only screen and (max-width: 50em) {
-  .icon-contract {
+  .icon-contract, .icon-expand {
     display: none; } }
 
 .icon-colorMode:hover {
   color: #FFF; }
 
-.icon-trash:hover {
+.icon-close:hover {
   color: #b64848; }
 
 .text-section {
@@ -4516,5 +4541,3 @@ section.right-small {
 
   100% {
     opacity: 1; } }
-
-/*# sourceMappingURL=app.css.map */

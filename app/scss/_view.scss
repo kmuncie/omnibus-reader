@@ -33,14 +33,15 @@
    }
 }
 
-.icon-trash {
+.icon-close {
    border-left: solid 1px #6d8091;
    @media #{$small-only} {
       border-left: none;
    }
 }
 
-.icon-contract {
+.icon-contract,
+.icon-expand {
    @media #{$small-only} {
       display: none;
    }
@@ -52,7 +53,7 @@
    }
 }
 
-.icon-trash {
+.icon-close {
    &:hover {
       color: $primary-color;
    }

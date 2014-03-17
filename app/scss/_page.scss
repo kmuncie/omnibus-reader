@@ -97,6 +97,12 @@
    select {
       background: #404040;
       color: #ccc;
+      -webkit-box-shadow:none;
+      -moz-box-shadow:none;
+      box-shadow:none;
+   }
+   select {
+      background: #2C2C2C;
    }
    .barIcon {
       color: #6F6F6F;

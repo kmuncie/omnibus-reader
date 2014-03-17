@@ -2,40 +2,53 @@ nav.tab-bar {
    z-index: 10;
 }
 
-// .left-off-canvas-menu {
-//    padding-top: 45px;
-// }
-
-// .bibleNav {
-//    display: block;
-//    height: 50px;
-//    clear: both;
-//    margin-bottom: 15px;
-// }
-
 select {
    width: auto;
-   -webkit-appearance:none;
-   -moz-appearance:none;
-   appearance:none;
-   cursor:pointer;
-   border:none;
-   outline:none;
-}
-
-.sel-book {
-   padding-right: 5px;
-   margin-top: 5px;
+    padding:0 30px 0 0;
+    margin: 5px 0 0 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
    font-family: $header-font-family;
    font-size: rem-calc(25);
-   background: #919FAC;
-   color: white;
-   float: left;
-   border-right: 1px dotted #5F707E;
+    -webkit-box-shadow:
+        1px 2px 0 darken($tabbar-bg, 15%),
+        0 -1px darken($tabbar-bg, 5%) inset;
+    -moz-box-shadow:
+        1px 2px 0 darken($tabbar-bg, 15%),
+        0 -1px darken($tabbar-bg, 5%) inset;
+    box-shadow:
+        1px 2px 0 darken($tabbar-bg, 15%),
+        0 -1px darken($tabbar-bg, 5%) inset;
+    background: darken($tabbar-bg, 10%);
+    color:#F0F0F0;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
 }
-.sel-chapter {
-   @extend .sel-book;
-   padding-left: 10px;
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {padding-right:40px}
+}
+label {
+   position: relative;
+   &:after {
+    content:'<>';
+    font-size: rem-calc(20);
+    font-family: "Consolas", monospace;
+    color:darken($tabbar-bg, 30%);
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:4px;
+    border-bottom:1px solid darken($tabbar-bg, 30%);
+    position:absolute;
+    pointer-events:none;
+   }
 }
 
 section.right-small {

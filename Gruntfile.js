@@ -12,8 +12,6 @@ module.exports = function(grunt) {
          dist: {
             options: {
                outputStyle: 'extended',
-               sourceComments: 'map',
-               sourceMap: 'app/css/app.css.map'
             },
             files: {
                'app/css/app.css': 'app/scss/app.scss'
