@@ -23,28 +23,36 @@
 */
 
 
-.sr-reader {
+.sr-reader-wrapper {
+  z-index: 999999;
   position: fixed;
-  z-index: 9999;
+  padding: 50px;
   top: -50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  height: 100px;
-  display: flex;
-  flex-direction: row;
-  font-family: Consolas, monaco, monospace;
-  -webkit-box-shadow: 2px 2px 19px 0px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow: 2px 2px 19px 0px rgba(50, 50, 50, 0.75);
-  box-shadow: 2px 2px 19px 0px rgba(50, 50, 50, 0.75);
-  border-radius: 10px;
   -webkit-transition: top 0.34s ease;
   -moz-transition: top 0.34s ease;
   transition: top 0.34s ease;
 }
 
+.sr-reader {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  -webkit-box-shadow: 2px 2px 19px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 2px 2px 19px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 2px 2px 19px 0px rgba(50, 50, 50, 0.75);
+  border-radius: 10px;
+}
+
+.sr-reader-wrapper.in {
+  top: 50%;
+}
+
 .sr-blackout {
+  z-index: 999998;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -58,16 +66,25 @@
 }
 
 .sr-blackout.in {
-  opacity: 0.34;
+  opacity: 0.18;
 }
 
 .sr-reader > .sr-wrap {
-  min-width: 30px;
+  min-width: 40px;
   background-color: #EEE;
   color: #666;
+  font-family: Consolas, monaco, monospace;
   font-size: 50px;
   flex: 1 1 auto;
   padding: 15px 5px;
+  line-height: 60px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.sr-reader.sr-dark > .sr-wrap {
+  color: white;
+  background-color: #555;
 }
 
 .sr-reader .sr-wrap.sr-left {
@@ -85,8 +102,35 @@
   width: 400px;
   background: white;
   position: relative;
-  font-size: 50px;
-  color: black;
+}
+
+.sr-reader.sr-dark .sr-word-box {
+  background-color: black;
+}
+
+.sr-reader .sr-word-box .sr-progress {
+  position: absolute;
+  bottom: -10px;
+  width: 400px;
+  height: 3px;
+  background-color: black;
+  border-left: 0px solid green;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: border 0.34s ease;
+  -moz-transition: border 0.34s ease;
+  transition: border 0.34s ease;
+}
+
+.sr-reader .sr-word-box .sr-message {
+  position: absolute;
+  display: none;
+  top: 0;
+  right: 4px;
+  font-size: 20px;
+  font-family: Consolas, monaco, monospace;
+  color: #777;
+  text-align: right;
 }
 
 .sr-reader .sr-word-box .sr-reticle {
@@ -104,9 +148,16 @@
   position: absolute;
   right: 4px;
   bottom: 0px;
+  font-family: Consolas, monaco, monospace;
+  color: black;
   font-size: 20px;
   color: #777;
   box-sizing: border-box;
+}
+
+.sr-reader.sr-dark .sr-word-box .sr-wpm {
+  color: white;
+  background-color: black;
 }
 
 .sr-reader .sr-word-box .sr-word {
@@ -117,6 +168,60 @@
   transform: translateY(-50%);
 }
 
+.sr-reader .sr-word-box .sr-word > span {
+  font-size: 50px;
+  color: black;
+}
+
+.sr-reader.sr-dark .sr-word-box .sr-word > span {
+  color: white;
+}
+
 .sr-reader .sr-word-box .sr-word .sr-pivot {
   color: red;
+}
+
+.sr-reader.sr-dark .sr-word-box .sr-word .sr-pivot {
+  color: #00ff00;
+}
+
+.sr-input {
+  position: absolute;
+  width: 0px;
+  opacity: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  overflow: hidden;
+}
+
+.sr-overlay {
+  background-color: red;
+  opacity: 0.2;
+  position: absolute;
+  pointer-events: none;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+.sr-selectmode-info {
+  background-color: white;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 12px;
+  padding: 5px;
+  z-index: 100000;
+}
+
+.sr-selectmode-info em {
+  border: 1px solid #CCC;
+  background-color: #EEE;
+  border-radius: 1px;
+  padding: 3px;
+}
+
+.sr-pointer {
+  cursor: pointer;
 }

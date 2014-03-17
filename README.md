@@ -22,7 +22,7 @@ Project generated using [Yeoman](http://yeoman.io/index.html) and [generator-zf5
 
 Control is currently keyboard-only.
 
-- Initiate jetzt by selecting some text and pressing `alt+r`.
+- Initiate jetzt by pressing `alt`-`s` and clicking on the block of text you wish to read. Alternatively, select some text before pressing `alt`-`s`.
 
 - Change size with `+`/`-`.
 
@@ -33,6 +33,10 @@ Control is currently keyboard-only.
 - Pause with space.
 
 - Close with escape.
+
+- Switch between light/dark themes with `0`
+
+- Toggle summary stats with `/` or `?` at the end of a run
 
 #### Grunt tasks:
 

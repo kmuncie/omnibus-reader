@@ -3,7 +3,6 @@
 
    // Color mode
    $('.colorMode').click(function() {
-      console.log('test');
       $('.entirePage').toggleClass('darkMode');
       $('.colorMode').toggleClass('lightButton');
    });
