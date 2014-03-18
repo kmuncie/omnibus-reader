@@ -7,7 +7,7 @@
 //
 // A reader application
 //    Created by:
-//    Kevin Muncie, Joshua Steelman, Ruben Luna, Jonathan James, Evan Yu
+//    Kevin Muncie, Joshua Steelman, Craig Weber, Ruben Luna, Jonathan James, Evan Yu
 (function() {
    'use strict';
    var BasicFetcher, IndexedDBFetcher,
@@ -306,8 +306,6 @@
       return listing;
    };
 
-
-
    Layout = function() {
       var divContent = $('#content');
       var divAddNew = $('#addNew');
@@ -522,7 +520,7 @@
    layout = new Layout(),
 
    fetcher = (function() {
-      if (true || !window.indexedDB) {
+      if (!window.indexedDB) {
          return new BasicFetcher();
       }
 
