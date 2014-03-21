@@ -23,8 +23,6 @@
    window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
 
-
-
    function log(obj) {
       if (DEBUG) {
          console.log(obj);
