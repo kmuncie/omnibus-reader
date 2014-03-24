@@ -349,6 +349,7 @@
       this.buttonExpand = this.divView.find('.viewExpand');
       this.iconResize = this.divView.find('.iconResize');
       this.buttonClose = this.divView.find('.viewDestroy');
+      this.nextChapter = this.divView.find('.nextChapter');
 
    };
 
@@ -400,6 +401,16 @@
             var cid = self.selectChapter.val();
 
             events.viewSelectChapter(self, bid, cid);
+         });
+
+         this.nextChapter.click(function() {
+            var bid = self.selectBooks.val();
+            var cid = self.selectChapter.val();
+
+            cid++; // Next Chapter
+            events.viewNextChapter(self, bid, cid);
+            self.selectChapter.val(cid); // Set select to new chapter
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
          });
       },
 
@@ -468,7 +479,6 @@
             view.populateBookList(booklist);
             events.viewSelectBook(view, 1, 1);
             view.bindEvents(events);
-            console.log(view_count);
             layout.addView(view);
          },
 
@@ -497,6 +507,14 @@
             bid = parseInt(bid, 10);
             cid = parseInt(cid, 10);
 
+            view.setLoadingIndicator(true);
+            fetcher.getChapter(bid, cid).done(function(chapter) {
+               view.showChapter(chapter);
+               view.setLoadingIndicator(false);
+            });
+         },
+
+         viewNextChapter: function(view, bid, cid) {
             view.setLoadingIndicator(true);
             fetcher.getChapter(bid, cid).done(function(chapter) {
                view.showChapter(chapter);

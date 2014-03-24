@@ -116,6 +116,16 @@
       background-color: #1E1E1E;
       color: #EAEAEA;
       border: 1px solid #7D7D7D;
+      @media #{$small-only} {
+         border: none;
+         border-bottom: 1px solid #7D7D7D;
+      }
+   }
+   .nextChapter {
+      background-color: lighten(#1E1E1E, 5%);
+      &:hover {
+         background-color: lighten(#1E1E1E, 5%);
+      }
    }
    #bibleText {
       a {

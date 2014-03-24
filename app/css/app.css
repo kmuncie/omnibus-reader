@@ -4144,6 +4144,14 @@ th.hide-for-touch {
     background-color: #1E1E1E;
     color: #EAEAEA;
     border: 1px solid #7D7D7D; }
+    @media only screen and (max-width: 50em) {
+      .darkMode .text-section {
+        border: none;
+        border-bottom: 1px solid #7D7D7D; } }
+  .darkMode .nextChapter {
+    background-color: #2b2b2b; }
+    .darkMode .nextChapter:hover {
+      background-color: #2b2b2b; }
   .darkMode #bibleText a {
     color: #7ea1bf;
     text-shadow: none; }
@@ -4251,6 +4259,15 @@ section.right-small {
   @media only screen and (min-width:50.063em) {
     .text-section {
       padding: 0 25px 30px; } }
+
+.nextChapter {
+  position: absolute;
+  right: 6px;
+  bottom: 1px;
+  padding: 7px 13px;
+  background: #e1e1e1; }
+  .nextChapter:hover {
+    background: #c8c8c8; }
 
 #bibleText {
   padding: 0 10px 20px 10px;

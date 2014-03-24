@@ -69,3 +69,14 @@
    }
 }
 
+.nextChapter {
+   position: absolute;
+   right: 6px;
+   bottom: 1px;
+   padding: 7px 13px;
+   background: darken(#EEEEEE, 5%);
+   &:hover {
+      background: darken(#EEEEEE, 15%);
+   }
+}
+
