@@ -17,9 +17,11 @@
        DEBUG = false,
        view_count = 0;
 
-
    // Normalize IndexedDB naming
-   window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+   // window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+   if (!window.indexedDB) {
+      window.indexedDB = window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+   }
    window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
 
