@@ -18,7 +18,6 @@
        view_count = 0;
 
    // Normalize IndexedDB naming
-   // window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
    if (!window.indexedDB) {
       window.indexedDB = window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
    }
@@ -30,8 +29,6 @@
          console.log(obj);
       }
    }
-
-
 
    BasicFetcher = function() {};
    BasicFetcher.prototype = {
