@@ -2,6 +2,7 @@
  * Fetcher functionality
  */
 module.require(['View'], function(View) {
+   'use strict';
 
    var Controller;
 

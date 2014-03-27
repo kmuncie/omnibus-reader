@@ -2,6 +2,7 @@
  * Fetcher functionality
  */
 (function() {
+   'use strict';
 
    var View;
 

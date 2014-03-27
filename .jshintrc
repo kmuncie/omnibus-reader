@@ -13,6 +13,7 @@
    "quotmark": "single",
    "globals": {
       "jQuery": true,
-      "$": true
+      "$": true,
+      "_": true
    }
 }

@@ -17,7 +17,7 @@ module.require(['Layout', 'Controller', 'fetcher'], function(Layout, Controller,
 
 
    // Boot up application
-   layout = new Layout(),
+   layout = new Layout();
    controller = new Controller(layout, fetcher);
    controller.ready(function() {
       controller.layoutAddView();

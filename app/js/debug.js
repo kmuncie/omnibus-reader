@@ -2,6 +2,8 @@
  * Debug functionality
  */
 (function() {
+   'use strict';
+
    var DEBUG = true;
 
    module.define('debug', {

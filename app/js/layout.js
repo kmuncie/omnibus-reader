@@ -2,9 +2,10 @@
  * Fetcher functionality
  */
 (function() {
+   'use strict';
 
    var Layout,
-       view_count = 0;;
+       view_count = 0;
 
 
    Layout = function() {

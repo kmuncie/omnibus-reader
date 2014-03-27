@@ -2,6 +2,7 @@
  * Fetcher functionality
  */
 module.require(['debug'], function(debug) {
+   'use strict';
 
    var BasicFetcher, IndexedDBFetcher;
 

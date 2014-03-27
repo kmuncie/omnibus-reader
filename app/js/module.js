@@ -1,4 +1,6 @@
 window.module = (function() {
+   'use strict';
+
    var promises = {},
        getPromise;
 
