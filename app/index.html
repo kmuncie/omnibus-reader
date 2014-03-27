@@ -1,6 +1,6 @@
 <!doctype html>
 <!--[if IE 9]>      <html class="no-js lt-ie10" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="en" manifest="cache.manifest"> <!--<![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
@@ -8,6 +8,7 @@
       <link rel="shortcut icon" href="images/favicon-32.ico" />
       <link rel="shortcut icon" href="images/favicon-128.ico" />
       <link rel="apple-touch-icon-precomposed" href="images/favicon-152.png" />
+
       <!-- build:css css/app.min.css -->
       <link rel="stylesheet" href="css/app.css">
       <!-- endbuild -->
@@ -17,9 +18,11 @@
       <!-- build:js js/vendor/modernizr.min.js -->
       <script src="bower_components/modernizr/modernizr.js"></script>
       <!-- endbuild -->
+
       <!-- build:js js/vendor/jetzt.min.js -->
       <script src="bower_components/jetzt/jetzt.js"></script>
       <!-- endbuild -->
+
       <script type="text/javascript">
          var heap=heap||[];heap.load=function(a){window._heapid=a;var b=document.createElement("script");b.type="text/javascript",b.async=!0,b.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.heapanalytics.com/js/heap.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d=function(a){return function(){heap.push([a].concat(Array.prototype.slice.call(arguments,0)))}},e=["identify","track"];for(var f=0;f<e.length;f++)heap[e[f]]=d(e[f])};
          heap.load("1952266129");
@@ -73,20 +76,21 @@
          <div id="content"></div>
       </div>
 
-      <!-- build:js js/vendor/jquery.min.js -->
+      <!-- build:js js/vendor/thirdparty.min.js -->
       <script src="bower_components/jquery/dist/jquery.js"></script>
-      <!-- endbuild -->
-
-      <!-- build:js js/foundation/foundation.min.js -->
+      <script src="bower_components/underscore/underscore.js"></script>
       <script src="bower_components/foundation/js/foundation.js"></script>
       <!-- endbuild -->
 
       <!-- build:js js/app.min.js -->
-      <script src="js/app.js"></script>
-      <!-- endbuild -->
+      <script src="js/module.js"></script>
 
-      <!-- build:js js/omnibus.min.js -->
-      <script src="js/omnibus.js"></script>
+      <script src="js/app.js"></script>
+      <script src="js/controller.js"></script>
+      <script src="js/debug.js"></script>
+      <script src="js/fetcher.js"></script>
+      <script src="js/layout.js"></script>
+      <script src="js/view.js"></script>
       <!-- endbuild -->
 
       <!-- Start of StatCounter Code for Default Guide -->

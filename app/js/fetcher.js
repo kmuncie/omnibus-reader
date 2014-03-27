@@ -1,21 +1,9 @@
-//    ___                      _     _
-//   / _ \   _ __    _ _      (_)   | |__    _  _     ___
-//  | (_) | | '  \  | ' \     | |   | '_ \  | +| |   (_-<
-//   \___/  |_|_|_| |_||_|   _|_|_  |_.__/   \_,_|   /__/_
-// _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
-// "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'
-//
-// A reader application
-//    Created by:
-//    Kevin Muncie, Joshua Steelman, Craig Weber, Ruben Luna, Jonathan James, Evan Yu
-(function() {
-   'use strict';
-   var BasicFetcher, IndexedDBFetcher,
-       Layout,
-       View,
-       Controller,
-       DEBUG = false,
-       view_count = 0;
+/**
+ * Fetcher functionality
+ */
+module.require(['debug'], function(debug) {
+
+   var BasicFetcher, IndexedDBFetcher;
 
    // Normalize IndexedDB naming
    if (!window.indexedDB) {
@@ -24,11 +12,7 @@
    window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
 
-   function log(obj) {
-      if (DEBUG) {
-         console.log(obj);
-      }
-   }
+
 
    BasicFetcher = function() {};
    BasicFetcher.prototype = {
@@ -80,11 +64,11 @@
             path = this.BASE_URL + path + '?callback=?';
 
             if (!cache.hasOwnProperty(path)) {
-               log('Requesting ' + path);
+               debug.log('Requesting ' + path);
                cache[path] = $.getJSON(path);
 
                cache[path].done(function() {
-                  log('Response ' + path);
+                  debug.log('Response ' + path);
                });
             }
 
@@ -240,12 +224,12 @@
             var result = e.target.result;
 
             if (result !== undefined) {
-               log('Found key ' + key + ' in ' + name + ' ObjectStore');
+               debug.log('Found key ' + key + ' in ' + name + ' ObjectStore');
                getting.resolve(e.target.result);
                return;
             }
 
-            log('Found nothing for key ' + key + ' in ' + name + ' ObjectStore');
+            debug.log('Found nothing for key ' + key + ' in ' + name + ' ObjectStore');
             getting.reject();
          };
       });
@@ -295,7 +279,7 @@
                return;
             }
 
-            log('Found ' + set.length + ' rows in ' + name + ' ObjectStore');
+            debug.log('Found ' + set.length + ' rows in ' + name + ' ObjectStore');
             listing.resolve(set);
          };
       });
@@ -303,248 +287,13 @@
       return listing;
    };
 
-   Layout = function() {
-      var divContent = $('#content');
-      var divAddNew = $('#addNew');
 
-
-      this.bindEvents = function(events) {
-         divAddNew.click(function() {
-            events.layoutAddView();
-            if (view_count === 2) {
-               $('.aView').removeClass('small-centered');
-            } else
-            if (view_count === 1) {
-               $('.aView').addClass('small-centered');
-            }
-         });
-      };
-
-
-      this.addView = function(view) {
-         divContent.append(view.divView);
-      };
-
-      this.removeView = function(view) {
-         view.divView.remove();
-         if (view_count === 1) {
-            $('.aView').addClass('small-centered');
-         }
-      };
-   };
-
-
-
-   View = function() {
-      this.id = ++view_count;
-
-      var divTemplate = $('#template').children();
-
-      this.divView = divTemplate.clone();
-      this.selectBooks = this.divView.find('.sel-book');
-      this.selectChapter = this.divView.find('.sel-chapter');
-      this.divLoading = this.divView.find('.loading');
-      this.divVerses = this.divView.find('.verses');
-      this.viewTitle = this.divView.find('.viewBookName');
-      this.buttonExpand = this.divView.find('.viewExpand');
-      this.iconResize = this.divView.find('.iconResize');
-      this.buttonClose = this.divView.find('.viewDestroy');
-      this.nextChapter = this.divView.find('.nextChapter');
-
-   };
-
-   View.prototype = {
-
-
-      bindEvents: function(events) {
-         var self = this;
-         var isExpanding = true;
-
-         this.selectBooks.change(function() {
-            var bid = self.selectBooks.val();
-            events.viewSelectBook(self, bid);
-         });
-
-         this.buttonExpand.click(function() {
-            if (self.divView.hasClass('medium-8 large-4')) {
-               self.divView.removeClass('large-4');
-               return;
-            }
-            if (self.divView.hasClass('medium-8') && isExpanding) {
-               self.divView.removeClass('medium-8');
-               self.iconResize.removeClass('icon-expand');
-               self.iconResize.addClass('icon-contract');
-               isExpanding = false;
-               return;
-            }
-            if (self.divView.hasClass('medium-8')) {
-               self.divView.addClass('large-4');
-               isExpanding = true;
-            }
-            self.divView.addClass('medium-8');
-
-            if (!isExpanding) {
-               self.iconResize.removeClass('icon-expand');
-               self.iconResize.addClass('icon-contract');
-            } else {
-               self.iconResize.addClass('icon-expand');
-               self.iconResize.removeClass('icon-contract');
-            }
-         });
-
-         this.buttonClose.click(function() {
-            events.viewDestroy(self);
-         });
-
-         this.selectChapter.change(function() {
-            var bid = self.selectBooks.val();
-            var cid = self.selectChapter.val();
-
-            events.viewSelectChapter(self, bid, cid);
-         });
-
-         this.nextChapter.click(function() {
-            var bid = self.selectBooks.val();
-            var cid = self.selectChapter.val();
-
-            cid++; // Next Chapter
-            events.viewNextChapter(self, bid, cid);
-            self.selectChapter.val(cid); // Set select to new chapter
-            $('html, body').animate({ scrollTop: 0 }, 'slow');
-         });
-      },
-
-
-      populateBookList: function(books) {
-         var book, i;
-         this.selectBooks.empty();
-
-         for (i = 0; i < books.length; i++) {
-            book = books[i];
-            this.selectBooks.append('<option value="' + book.bookNum + '">' + book.standardAbbreviation + '</option>');
-         }
-      },
-
-
-      populateChapterList: function(lastChapter) {
-         this.selectChapter.empty();
-         for (var i = 1; i <= lastChapter; i++) {
-            this.selectChapter.append('<option value="' + i + '">' + i + '</option>');
-         }
-      },
-
-
-      showChapter: function(chapter) {
-         this.divVerses.html(chapter.html);
-         this.viewTitle.html(chapter.citation);
-      },
-
-
-      setLoadingIndicator: function(visible) {
-         if (visible) {
-            this.divLoading.fadeIn();
-            return;
-         }
-
-         this.divLoading.fadeOut();
-      },
-
-
-      destroyView: function() {
-         this.divView.fadeOut();
-      }
-   };
-
-
-
-   Controller = function(layout, fetcher) {
-      var views = [],
-          booklist;
-
-      var gettingBooks = fetcher.listBooks().done(function(books) {
-         booklist = books;
-      });
-
-
-      this.ready = function(fn) {
-         gettingBooks.done(fn);
-      };
-
-
-      var events = {
-         layoutAddView: function() {
-            var view = new View();
-
-            views.push(view);
-            view.populateBookList(booklist);
-            events.viewSelectBook(view, 1, 1);
-            view.bindEvents(events);
-            layout.addView(view);
-         },
-
-         viewDestroy: function(view) {
-            view_count = --view_count;
-            console.log(view_count);
-            layout.removeView(view);
-            delete views[views.indexOf(view)];
-         },
-
-
-         viewSelectBook: function(view, bid, cid) {
-            bid = parseInt(bid, 10);
-            cid = parseInt(cid, 10);
-
-            var book = booklist.filter(function(b) {
-               return b.bookNum === bid;
-            })[0];
-
-            view.populateChapterList(book.chapterCount);
-            events.viewSelectChapter(view, bid, cid || 1);
-         },
-
-
-         viewSelectChapter: function(view, bid, cid) {
-            bid = parseInt(bid, 10);
-            cid = parseInt(cid, 10);
-
-            view.setLoadingIndicator(true);
-            fetcher.getChapter(bid, cid).done(function(chapter) {
-               view.showChapter(chapter);
-               view.setLoadingIndicator(false);
-            });
-         },
-
-         viewNextChapter: function(view, bid, cid) {
-            view.setLoadingIndicator(true);
-            fetcher.getChapter(bid, cid).done(function(chapter) {
-               view.showChapter(chapter);
-               view.setLoadingIndicator(false);
-            });
-         }
-      };
-
-
-      layout.bindEvents(events);
-      this.layoutAddView = events.layoutAddView;
-   };
-
-
-
-   var layout, fetcher, controller;
-
-   layout = new Layout(),
-
-   fetcher = (function() {
+   module.define('fetcher', (function() {
       if (!window.indexedDB) {
          return new BasicFetcher();
       }
 
       return new IndexedDBFetcher();
-   }());
+   }()));
 
-   controller = new Controller(layout, fetcher);
-   controller.ready(function() {
-      controller.layoutAddView();
-   });
-
-}());
+});

@@ -1,7 +1,9 @@
 {
-   "name": "omnibus-reader",
-   "dependencies": {
-      "foundation": "zurb/bower-foundation"  ,
-      "font-awesome": "~4.0.3"
-   }
+  "name": "omnibus-reader",
+  "dependencies": {
+    "foundation": "zurb/bower-foundation",
+    "font-awesome": "~4.0.3",
+    "underscore": "~1.6.0",
+    "jetzt": "https://github.com/ds300/jetzt.git"
+  }
 }
