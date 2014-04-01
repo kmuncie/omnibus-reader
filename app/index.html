@@ -1,6 +1,6 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--[if IE 9]>      <html class="no-js lt-ie10" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="en" manifest="cache.manifest"> <!--<![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
@@ -29,46 +29,11 @@
       </script>
    </head>
    <body class="entirePage">
-
       <div class="row">
          <div class="small-12 small-centered medium-11 large-8 large-centered columns clearfix">
             <h1 class="siteTitle">Omnibus Reader</h1>
             <a class="button right colorMode"><span class="icon-colorMode"></span></a>
             <a class="button right NewReaderButton" id="addNew"><span class="icon-plus"></span> Add Reader</a>
-         </div>
-      </div>
-
-      <div id="template">
-         <div class="aView columns small-centered small-16 medium-8">
-            <nav class="tab-bar">
-               <section class="left tab-bar-section">
-                  <label>
-                     <select class='sel-book' name="Bible Book"></select>
-                  </label>
-                  <label>
-                     <select class='sel-chapter' name="Book Chapter"></select>
-                  </label>
-               </section>
-
-               <section class="right-small">
-                  <a class="viewExpand"><span class="iconResize barIcon icon-expand"></span></a>
-                  <a class="viewDestroy"><span class="barIcon icon-close"></span></a>
-               </section>
-            </nav>
-            <section class="text-section darkColor">
-            <h1 class="viewBookName"></h1>
-               <div id="bibleText" class="verses">
-                  <div class="loading">
-                    <div class="stick"></div>
-                    <div class="stick"></div>
-                    <div class="stick"></div>
-                    <div class="stick"></div>
-                    <div class="stick"></div>
-                    <div class="stick"></div>
-                  </div>
-               </div>
-               <a class="nextChapter">Next Chapter ></a>
-            </section>
          </div>
       </div>
 
@@ -79,6 +44,7 @@
       <!-- build:js js/vendor/thirdparty.min.js -->
       <script src="bower_components/jquery/dist/jquery.js"></script>
       <script src="bower_components/underscore/underscore.js"></script>
+      <script src="bower_components/rivets/dist/rivets.js"></script>
       <script src="bower_components/foundation/js/foundation.js"></script>
       <!-- endbuild -->
 
@@ -89,8 +55,7 @@
       <script src="js/controller.js"></script>
       <script src="js/debug.js"></script>
       <script src="js/fetcher.js"></script>
-      <script src="js/layout.js"></script>
-      <script src="js/view.js"></script>
+      <script src="js/template.js"></script>
       <!-- endbuild -->
 
       <!-- Start of StatCounter Code for Default Guide -->

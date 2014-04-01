@@ -1,13 +1,7 @@
-module.require(['Layout', 'Controller', 'fetcher'], function(Layout, Controller, fetcher) {
+module.require(['Controller', 'fetcher'], function(Controller, fetcher) {
    'use strict';
    var doc = $(document),
-       layout, controller;
-
-   // Color mode
-   $('.colorMode').click(function() {
-      $('.entirePage').toggleClass('darkMode');
-      $('.colorMode').toggleClass('lightButton');
-   });
+       controller;
 
 
    // TODO: What is this?
@@ -17,9 +11,19 @@ module.require(['Layout', 'Controller', 'fetcher'], function(Layout, Controller,
 
 
    // Boot up application
-   layout = new Layout();
-   controller = new Controller(layout, fetcher);
-   controller.ready(function() {
-      controller.layoutAddView();
+   controller = new Controller(fetcher);
+   controller.addView();
+
+
+   // Color mode
+   $('.colorMode').click(function() {
+      $('.entirePage').toggleClass('darkMode');
+      $('.colorMode').toggleClass('lightButton');
+   });
+
+
+   // Add more readers
+   $('#addNew').click(function() {
+      controller.addView();
    });
 });

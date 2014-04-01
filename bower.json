@@ -4,6 +4,7 @@
     "foundation": "zurb/bower-foundation",
     "font-awesome": "~4.0.3",
     "underscore": "~1.6.0",
-    "jetzt": "https://github.com/ds300/jetzt.git"
+    "jetzt": "https://github.com/ds300/jetzt.git",
+    "rivets": "~0.6.7"
   }
 }
