@@ -4184,6 +4184,9 @@ select {
   text-overflow: '';
   appearance: none;
   cursor: pointer; }
+  @media only screen and (max-width: 50em) {
+    select {
+      max-width: 120px; } }
   select.sel-lang {
     max-width: 95%;
     font-size: 1rem; }

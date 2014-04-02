@@ -3,6 +3,9 @@ nav.tab-bar {
 }
 
 select {
+   @media #{$small-only} {
+      max-width: 120px;
+   }
    width: auto;
    max-width: 150px;
    padding:2px 20px 2px 3px;
