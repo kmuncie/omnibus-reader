@@ -1,16 +1,17 @@
 <div class="aView columns small-16 medium-8" rv-class-small-centered="controller.singleView">
    <nav class="tab-bar">
       <section class="left tab-bar-section">
-         <label>
-            <select class='sel-book' name="Bible Book" rv-value="state.book" rv-on-change="controller.changeBook">
-               <option rv-each-book="controller.books" rv-value="book.bookNum" rv-html="book.standardName"></option>
-            </select>
-         </label>
-         <label>
-            <select class='sel-chapter' name="Book Chapter" rv-value="state.chapter" rv-on-change="controller.changeChapter">
-               <option rv-each-chapter="state.chapters" rv-value="chapter.chapterNum" rv-html="chapter.chapterNum"></option>
-            </select>
-         </label>
+         <select class='sel-lang' name="Edition" rv-value="state.edition" rv-on-change="controller.changeLanguage">
+            <optgroup rv-each-language="controller.languages" rv-label="language.lang.vernacularName">
+               <option rv-each-edition="language.editions" rv-value="edition.contentAPI" rv-html="edition.title"></option>
+            </optgroup>
+         </select>
+         <select class='sel-book' name="Bible Book" rv-value="state.book" rv-on-change="controller.changeBook">
+            <option rv-each-book="state.books" rv-value="book.bookNum" rv-html="book.standardName"></option>
+         </select>
+         <select class='sel-chapter' name="Book Chapter" rv-value="state.chapter" rv-on-change="controller.changeChapter">
+            <option rv-each-chapter="state.chapters" rv-value="chapter.chapterNum" rv-html="chapter.chapterNum"></option>
+         </select>
       </section>
 
       <section class="right-small">

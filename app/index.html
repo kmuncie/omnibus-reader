@@ -14,19 +14,6 @@
       <!-- endbuild -->
 
       <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700|Merriweather+Sans:300' rel='stylesheet' type='text/css'>
-
-      <!-- build:js js/vendor/modernizr.min.js -->
-      <script src="bower_components/modernizr/modernizr.js"></script>
-      <!-- endbuild -->
-
-      <!-- build:js js/vendor/jetzt.min.js -->
-      <script src="bower_components/jetzt/jetzt.js"></script>
-      <!-- endbuild -->
-
-      <script type="text/javascript">
-         var heap=heap||[];heap.load=function(a){window._heapid=a;var b=document.createElement("script");b.type="text/javascript",b.async=!0,b.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.heapanalytics.com/js/heap.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d=function(a){return function(){heap.push([a].concat(Array.prototype.slice.call(arguments,0)))}},e=["identify","track"];for(var f=0;f<e.length;f++)heap[e[f]]=d(e[f])};
-         heap.load("1952266129");
-      </script>
    </head>
    <body class="entirePage">
       <div class="row">
@@ -42,10 +29,12 @@
       </div>
 
       <!-- build:js js/vendor/thirdparty.min.js -->
+      <script src="bower_components/modernizr/modernizr.js"></script>
       <script src="bower_components/jquery/dist/jquery.js"></script>
       <script src="bower_components/underscore/underscore.js"></script>
       <script src="bower_components/rivets/dist/rivets.js"></script>
       <script src="bower_components/foundation/js/foundation.js"></script>
+      <script src="bower_components/jetzt/jetzt.js"></script>
       <!-- endbuild -->
 
       <!-- build:js js/app.min.js -->
@@ -57,6 +46,11 @@
       <script src="js/fetcher.js"></script>
       <script src="js/template.js"></script>
       <!-- endbuild -->
+
+      <script type="text/javascript">
+         var heap=heap||[];heap.load=function(a){window._heapid=a;var b=document.createElement("script");b.type="text/javascript",b.async=!0,b.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.heapanalytics.com/js/heap.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d=function(a){return function(){heap.push([a].concat(Array.prototype.slice.call(arguments,0)))}},e=["identify","track"];for(var f=0;f<e.length;f++)heap[e[f]]=d(e[f])};
+         heap.load("1952266129");
+      </script>
 
       <!-- Start of StatCounter Code for Default Guide -->
       <script type="text/javascript">

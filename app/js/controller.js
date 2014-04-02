@@ -14,41 +14,45 @@ module.require(['template'], function(template) {
       this.template = template;
       this.viewCount = 0;
       this.singleView = true;
-      this.books = [];
+      this.languages = [];
 
-      this.fetcher.listBooks().then(function(books) {
-         self.books = books;
+      this.fetcher.listLanguages().then(function(languages) {
+         self.languages = languages;
       });
    };
 
 
 
    Controller.prototype.addView = function() {
-      var view = this.__getView(),
-          context = this.__buildContext(view);
+      var self = this;
 
-      $('#content').append(view);
-      this.viewCount++;
-      this.singleView = (this.viewCount === 1);
+      this.fetcher.listLanguages().then(function() {
+         var view = self.__getView(),
+             context = self.__buildContext(view);
 
-      rivets.bind(view, context);
+         $('#content').append(view);
+         self.viewCount++;
+         self.singleView = (self.viewCount === 1);
 
-      this.fetcher.listBooks().then(function() {
-         context.view.find('.sel-book').change();
+         rivets.bind(view, context);
+         context.state.edition = 'http://www.jw.org/en/publications/bible/nwt/books/json/';
+         context.view.find('.sel-lang').change();
       });
    };
 
 
    Controller.prototype.changeBook = function(e, c) {
       e.preventDefault();
-      var book, count, i;
+      var bookID = parseInt(c.state.book, 10),
+          book, count, i;
 
-      book = _.find(c.controller.books, function(b) {
-         return b.bookNum === c.state.book;
-      });
+      book = _.find(c.state.books, function(b) {
+         return b.bookNum === bookID;
+      }) || _.first(c.state.books);
+
+      c.state.book = book.bookNum;
 
       count = parseInt(book.chapterCount, 10);
-
       c.state.chapters = [];
       for (i = 0; i < count; i++) {
          c.state.chapters.push({
@@ -56,20 +60,34 @@ module.require(['template'], function(template) {
          });
       }
 
+      c.state.chapter = 1;
       c.view.find('.sel-chapter').change();
    };
 
 
    Controller.prototype.changeChapter = function(e, c) {
       e.preventDefault();
+
       c.state.isLoading = true;
-      c.controller.fetcher.getChapter(c.state.book, c.state.chapter).then(function(chap) {
+      c.controller.fetcher.getChapter(c.state.edition, c.state.book, c.state.chapter).then(function(chap) {
          c.state.title = chap.citation;
          c.state.content = chap.html;
          c.state.isLoading = false;
       });
 
-      c.state.isLastChapter = (c.state.book >= c.controller.books.length && c.state.chapter >= c.state.chapters.length);
+      c.state.isLastChapter = (c.state.book >= c.state.books.length && c.state.chapter >= c.state.chapters.length);
+   };
+
+
+   Controller.prototype.changeLanguage = function(e, c) {
+      e.preventDefault();
+
+      c.state.isLoading = true;
+      c.controller.fetcher.listBooks(c.state.edition).then(function(books) {
+         c.state.isLoading = false;
+         c.state.books = books;
+         c.view.find('.sel-book').change();
+      });
    };
 
 
@@ -136,8 +154,10 @@ module.require(['template'], function(template) {
             isLoading: true,
             isExpanding: true,
             isLastChapter: false,
+            edition: '',
             book: 1,
             chapter: 1,
+            books: [],
             chapters: [],
             title: null,
             content: null
