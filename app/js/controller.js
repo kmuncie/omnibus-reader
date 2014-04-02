@@ -78,6 +78,11 @@ module.require(['template'], function(template) {
       c.state.isLastChapter = (c.state.book >= c.state.books.length && c.state.chapter >= c.state.chapters.length);
    };
 
+   Controller.prototype.showLang = function(e, c) {
+      e.preventDefault();
+      c.view.find('.langContainer').toggleClass('visible');
+   };
+
 
    Controller.prototype.changeLanguage = function(e, c) {
       e.preventDefault();

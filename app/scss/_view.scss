@@ -33,6 +33,30 @@
    }
 }
 
+.langButton img {
+   position: relative;
+   display: block;
+   float: left;
+   max-height: 2rem;
+   margin-top: .4rem;
+   margin-right: 10px;
+}
+
+.langContainer {
+   display: none;
+   &.visible {
+      display: block;
+      position: absolute;
+      background-color: $tabbar-bg;
+      box-shadow: 1px 1px 4px black;
+      padding:5px;
+      width: 90%;
+      top: 3.4rem;
+      left: 10px;
+      @include css-arrow(top, $tabbar-bg, 0.5rem);
+   }
+}
+
 .icon-close {
    border-left: solid 1px #6d8091;
    @media #{$small-only} {

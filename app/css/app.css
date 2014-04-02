@@ -4172,7 +4172,7 @@ select {
   -moz-border-radius: 4px;
   border-radius: 4px;
   font-family: "Merriweather Sans", 'Quattrocento', serif;
-  font-size: 0.75rem;
+  font-size: 1.4375rem;
   background: #748696;
   color: #F0F0F0;
   border: none;
@@ -4184,6 +4184,9 @@ select {
   text-overflow: '';
   appearance: none;
   cursor: pointer; }
+  select.sel-lang {
+    max-width: 95%;
+    font-size: 1rem; }
 
 label {
   position: relative; }
@@ -4236,6 +4239,43 @@ section.right-small {
   .barIcon:hover {
     color: #B89F12; }
 
+.langButton img {
+  position: relative;
+  display: block;
+  float: left;
+  max-height: 2rem;
+  margin-top: 0.4rem;
+  margin-right: 10px; }
+
+.langContainer {
+  display: none; }
+  .langContainer.visible {
+    display: block;
+    position: absolute;
+    background-color: #919FAC;
+    box-shadow: 1px 1px 4px black;
+    padding: 5px;
+    width: 90%;
+    top: 3.4rem;
+    left: 10px; }
+    .langContainer.visible:after {
+      position: absolute;
+      border: solid transparent;
+      content: " ";
+      top: auto;
+      left: auto;
+      height: 0;
+      width: 0;
+      margin: 0;
+      border-color: transparent;
+      border-width: 0.5rem;
+      pointer-events: none; }
+    .langContainer.visible:after {
+      bottom: 100%;
+      border-bottom-color: #919FAC;
+      margin-left: -0.5rem;
+      left: 3%; }
+
 .icon-close {
   border-left: solid 1px #6d8091; }
   @media only screen and (max-width: 50em) {
@@ -4274,8 +4314,7 @@ section.right-small {
   padding: 0 10px 20px 10px;
   font-size: 1.25rem;
   line-height: 1.75rem;
-  position: relative;
-  z-index: 50; }
+  position: relative; }
   @media only screen and (min-width:50.063em) {
     #bibleText {
       font-size: 1.4375rem;
