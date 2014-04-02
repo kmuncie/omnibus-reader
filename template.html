@@ -1,0 +1,40 @@
+<div class="aView columns small-16 medium-8" rv-class-small-centered="controller.singleView">
+   <nav class="tab-bar">
+      <section class="left tab-bar-section">
+         <select class='sel-lang' name="Edition" rv-value="state.edition" rv-on-change="controller.changeLanguage">
+            <optgroup rv-each-language="controller.languages" rv-label="language.lang.vernacularName">
+               <option rv-each-edition="language.editions" rv-value="edition.contentAPI" rv-html="edition.title"></option>
+            </optgroup>
+         </select>
+         <select class='sel-book' name="Bible Book" rv-value="state.book" rv-on-change="controller.changeBook">
+            <option rv-each-book="state.books" rv-value="book.bookNum" rv-html="book.standardName"></option>
+         </select>
+         <select class='sel-chapter' name="Book Chapter" rv-value="state.chapter" rv-on-change="controller.changeChapter">
+            <option rv-each-chapter="state.chapters" rv-value="chapter.chapterNum" rv-html="chapter.chapterNum"></option>
+         </select>
+      </section>
+
+      <section class="right-small">
+         <a class="viewExpand" rv-on-click="controller.changeSize">
+            <span class="iconResize barIcon icon-expand"></span>
+         </a>
+
+         <a class="viewDestroy" rv-unless="controller.singleView" rv-on-click="controller.destroyView">
+            <span class="barIcon icon-close"></span>
+         </a>
+      </section>
+   </nav>
+   <section class="text-section darkColor">
+      <h1 class="viewBookName" rv-html="state.title"></h1>
+      <div class="loading" rv-show="state.isLoading">
+        <div class="stick"></div>
+        <div class="stick"></div>
+        <div class="stick"></div>
+        <div class="stick"></div>
+        <div class="stick"></div>
+        <div class="stick"></div>
+      </div>
+      <div id="bibleText" class="verses" rv-hide="state.isLoading" rv-html="state.content"></div>
+      <a class="nextChapter" rv-unless="state.isLastChapter" rv-on-click="controller.nextChapter">Next Chapter ></a>
+   </section>
+</div>
