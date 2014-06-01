@@ -2,10 +2,6 @@
 
 An online Bible reading application
 
-## Live Development Build
-
-[Omnibus on Github Pages](http://kmuncie.github.io/omnibus-reader/)
-
 ## Development
 
 Project generated using [Yeoman](http://yeoman.io/index.html) and [generator-zf5](https://github.com/juliancwirko/generator-zf5)
