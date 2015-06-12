@@ -8,7 +8,7 @@ module.require(['debug', 'parser'], function(debug, BasicParser) {
    VerseLinkParser.prototype = {
       parse: function(object) {
          debug.log('Parsing verses in chapter: ' + object.citation);
-         object.html = this.convertLinks($("<div></div>").append(object.html)).html();
+         object.html = this.convertLinks($('<div></div>').append(object.html)).html();
 
          return object;
       },
@@ -31,9 +31,9 @@ module.require(['debug', 'parser'], function(debug, BasicParser) {
       isVerseLink: function(link) {
          var attr = link.attr('data-anchor');
          var hasDataAnchor = (typeof attr !== typeof undefined && attr !== false);
-         var notFootnote = !link.hasClass("footnoteLink");
+         var notFootnote = !link.hasClass('footnoteLink');
 
-         return hasDataAnchor && notFootnote
+         return hasDataAnchor && notFootnote;
       }
    };
 
