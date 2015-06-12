@@ -19,60 +19,18 @@
    }
 }
 
-.colorMode {
+.button {
    @media #{$small-only} {
       padding-right: 0;
       padding-left: 0;
-      width: 10%;
       margin-top: 0;
       float: left;
    }
-   padding-top: .5rem;
-   padding-right: 1rem;
-   padding-bottom: .5rem;
-   padding-left: 1rem;
-   margin-left: .5rem;
-   margin-top: 1rem;
-   font-size: 0.8125rem;
-   background: #959595;
-   &:hover {
-      background: #303030;
-      color: #7E7E7E;
-   }
-   &.lightButton {
-      background: #303030;
-      &:hover {
-         background: #959595;
-      }
-   }
-   @media #{$medium-up} {
-      padding-top: 0.75rem;
-      padding-right: 1.2rem;
-      padding-bottom: 0.8rem;
-      padding-left: 1.2rem;
-      font-size: 1.3rem;
-   }
-}
-
-.NewReaderButton {
-   @media #{$small-only} {
-      padding-right: 0;
-      padding-left: 0;
-      width: 80%;
-      margin-top: 0;
-      float: left;
-   }
-   padding-top: 0.5rem;
-   padding-right: 1rem;
-   padding-bottom: 0.5rem;
-   padding-left: 1rem;
+   padding: .5rem 1rem;
    margin-top: 1rem;
    font-size: 0.8125rem;
    @media #{$medium-up} {
-      padding-top: 1rem;
-      padding-right: 1.5rem;
-      padding-bottom: 1rem;
-      padding-left: 1.5rem;
+      padding: 1rem 1.5rem;
       font-size: 1rem;
    }
 }
@@ -80,8 +38,11 @@
 .darkMode {
    background-color: #1E1E1E;
    color: #EAEAEA;
-   .NewReaderButton {
+   .button {
       background: darken($primary-color, 20%);
+      &:hover { 
+         background: $primary-color;
+      }
    }
    .light {
       color: $header-font-color;

@@ -20,6 +20,9 @@
    }
    .chapterNum {
       font-size: rem-calc(55);
+      .readingMode & {
+         display: none;
+      }
       @media #{$medium-up} {
          font-size: rem-calc(65);
       }
@@ -30,13 +33,19 @@
    .verseNum {
       font-size: rem-calc(17);
       text-shadow: 1px 0 0 #595959;
+      .readingMode & {
+         display: none;
+      }
       @media #{$medium-up} {
          font-size: rem-calc(22);
       }
    }
    .parabreak {
       display: block;
-      height: 0;
+      height: 5px;
+      .readingMode & {
+         height: 20px;
+      }
    }
    .style-l {
       display: inline;
