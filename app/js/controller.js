@@ -1,7 +1,7 @@
 /**
  * Fetcher functionality
  */
-module.require(['template'], function(template) {
+module.require(['template', 'parser-verselink'], function(template, VerseLinkParser) {
    'use strict';
 
    var Controller;
@@ -70,6 +70,7 @@ module.require(['template'], function(template) {
 
       c.state.isLoading = true;
       c.controller.fetcher.getChapter(c.state.edition, c.state.book, c.state.chapter).then(function(chap) {
+         chap = VerseLinkParser.parse(chap)
          c.state.title = chap.citation;
          c.state.content = chap.html;
          c.state.isLoading = false;
