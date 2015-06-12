@@ -11,7 +11,6 @@
       font-size: rem-calc(40);
    }
    @media #{$medium-up} {
-      float: left !important;
       line-height: rem-calc(70);
    }
    @media #{$large} {
@@ -19,12 +18,19 @@
    }
 }
 
+.title { 
+   text-align: center;
+}
+
+.controls { 
+   text-align: center;
+}
+
 .button {
    @media #{$small-only} {
       padding-right: 0;
       padding-left: 0;
       margin-top: 0;
-      float: left;
    }
    padding: .5rem 1rem;
    margin-top: 1rem;
