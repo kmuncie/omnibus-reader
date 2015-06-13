@@ -20,6 +20,23 @@
    }
 }
 
+.viewChrome {
+   background-color: #C6C6C6;
+   display: block;
+   .bibleNav {
+      float: left;
+   }
+   .viewControls {
+      float: right;
+          -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+   }
+}
+
 .barIcon {
    font-size: rem-calc(30);
    line-height: rem-calc(45);
@@ -32,34 +49,17 @@
    }
 }
 
-.langButton img {
-   position: relative;
-   display: block;
-   float: left;
-   max-height: 2rem;
-   margin-top: .4rem;
-   margin-right: 10px;
-}
-
 .langContainer {
    display: none;
    &.visible {
-      display: block;
-      position: absolute;
-      background-color: $tabbar-bg;
-      box-shadow: 1px 1px 4px black;
-      padding:5px;
-      width: 90%;
-      top: 3.4rem;
-      left: 10px;
-      @include css-arrow(top, $tabbar-bg, 0.5rem);
-   }
-}
-
-.icon-close {
-   border-left: solid 1px #6d8091;
-   @media #{$small-only} {
-      border-left: none;
+      display: inline-block;
+      padding: 10px;
+      float: right;
+      clear: both;
+      select {
+         max-width: 100%;
+         float: right;
+      }
    }
 }
 
@@ -86,9 +86,9 @@
    background-color: #EEEEEE;
    color: #1B1B1B;
    border: 1px solid #ccc;
-   padding: 0 5px 20px;
+   padding: 40px 5px 20px;
    @media #{$medium-up} {
-      padding: 0 25px 30px;
+      padding: 40px 25px 30px;
    }
 }
 

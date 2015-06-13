@@ -8,7 +8,7 @@
       line-height: rem-calc(37);
    }
    a {
-      color: lighten($secondary-color, 1%);
+      color: lighten($primary-color, 1%);
       text-shadow: 1px 0 0 #7F7F7F;
       &.xrefLink,
       &.footnoteLink {
@@ -27,7 +27,7 @@
          font-size: rem-calc(65);
       }
       a {
-         color: lighten($secondary-color, 5%);
+         color: lighten($primary-color, 5%);
       }
    }
    .verseNum {

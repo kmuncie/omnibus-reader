@@ -108,7 +108,7 @@ module.require(['template', 'parser-verselink'], function(template, VerseLinkPar
       if (c.view.hasClass('medium-8') && c.state.isExpanding) {
          c.view.removeClass('medium-8');
          icon.removeClass('icon-expand');
-         icon.addClass('icon-contract');
+         icon.addClass('icon-shrink');
          c.state.isExpanding = false;
          return;
       }
@@ -122,10 +122,10 @@ module.require(['template', 'parser-verselink'], function(template, VerseLinkPar
 
       if (!c.state.isExpanding) {
          icon.removeClass('icon-expand');
-         icon.addClass('icon-contract');
+         icon.addClass('icon-shrink');
       } else {
          icon.addClass('icon-expand');
-         icon.removeClass('icon-contract');
+         icon.removeClass('icon-shrink');
       }
    };
 

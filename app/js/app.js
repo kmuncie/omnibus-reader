@@ -29,4 +29,5 @@ module.require(['Controller', 'fetcher'], function(Controller, fetcher) {
    $('#addNew').click(function() {
       controller.addView();
    });
+
 });

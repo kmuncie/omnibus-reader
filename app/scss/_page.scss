@@ -2,54 +2,42 @@
    display: none;
 }
 
+.siteChrome {
+   text-align: center;
+   margin: .5rem 0;
+}
+
 .siteTitle {
+   display: inline-block;
+   margin: 0 1rem 0 0;
+   line-height: 1.5;
    @media #{$small-only} {
-      font-size: rem-calc(23);
-      text-align: center;
+      font-size: rem-calc(17);
    }
    @media #{$medium} {
-      font-size: rem-calc(40);
+      font-size: rem-calc(30);
    }
    @media #{$medium-up} {
-      line-height: rem-calc(70);
+      line-height: rem-calc(60);
    }
-   @media #{$large} {
-      font-size: rem-calc(55);
-   }
-}
-
-.title { 
-   text-align: center;
-}
-
-.controls { 
-   text-align: center;
 }
 
 .button {
-   @media #{$small-only} {
-      padding-right: 0;
-      padding-left: 0;
-      margin-top: 0;
-   }
+   margin: 0;
    padding: .5rem 1rem;
-   margin-top: 1rem;
-   font-size: 0.8125rem;
+   font-size: 1rem;
+   line-height: 1.5;
+   background-color: inherit;
+   color: #888888;
    @media #{$medium-up} {
-      padding: 1rem 1.5rem;
-      font-size: 1rem;
+      padding: .5rem 1rem;
+      font-size: 1.2rem;
    }
 }
 
 .darkMode {
    background-color: #1E1E1E;
    color: #EAEAEA;
-   .button {
-      background: darken($primary-color, 20%);
-      &:hover { 
-         background: $primary-color;
-      }
-   }
    .light {
       color: $header-font-color;
    }
@@ -60,24 +48,19 @@
       color: #4A4A4A;
       text-shadow: none;
    }
-   nav.tab-bar,
+   .viewChrome,
    select {
-      background: #404040;
+      background: #4C4C4C;
       color: #ccc;
       -webkit-box-shadow:none;
       -moz-box-shadow:none;
       box-shadow:none;
    }
    select {
-      background: #2C2C2C;
+      background: #4C4C4C;
    }
    .barIcon {
-      color: #6F6F6F;
-   }
-   section.right-small,
-   .barIcon {
-      border-left: solid 1px #495661;
-      box-shadow: none;
+      color: #ccc;
    }
    .text-section {
       background-color: #1E1E1E;

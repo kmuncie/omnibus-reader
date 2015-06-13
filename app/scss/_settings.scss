@@ -53,8 +53,8 @@ $body-font-weight: 400;
 // $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: #BCB16A;
-$secondary-color: #B89F12;
+$primary-color: #CFBF83;
+// $secondary-color: #B89F12;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
@@ -225,11 +225,11 @@ $button-font-family: join("Merriweather Sans", $body-font-family);
 // $button-font-sml: rem-calc(13);
 // $button-font-med: rem-calc(16);
 // $button-font-lrg: rem-calc(20);
-$button-font-weight: 300;
+// $button-font-weight: 300;
 // $button-font-align: center;
 
 // We use these to control various hover effects.
-// $button-function-factor: 5%;
+$button-function-factor: 20%;
 
 // We use these to control button border styles.
 // $button-border-width: 1px;
@@ -580,7 +580,7 @@ $tabbar-menu-icon-color: darken($tabbar-bg, 20%);
 // $off-canvas-overlay-background-hover: rgba(#FFF, 0.05);
 
 // Transition Variables
-$menu-slide: "transform 300ms ease";
+// $menu-slide: "transform 300ms ease";
 
 // Orbit
 
@@ -656,7 +656,7 @@ $menu-slide: "transform 300ms ease";
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-$panel-bg: scale-color(#F9F9F9, $lightness: -5%);
+// $panel-bg: scale-color(#F9F9F9, $lightness: -5%);
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -666,10 +666,10 @@ $panel-bg: scale-color(#F9F9F9, $lightness: -5%);
 
 // We use these to set default inner padding and bottom margin
 // $panel-margin-bottom: rem-calc(20);
-$panel-padding: rem-calc(10) rem-calc(20);
+// $panel-padding: rem-calc(10) rem-calc(20);
 
 // We use these to set default font colors
-$panel-font-color: #4D5647;
+// $panel-font-color: #4D5647;
 // $panel-font-color-alt: #fff;
 
 // $panel-header-adjust: true;
