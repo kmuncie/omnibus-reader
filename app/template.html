@@ -1,4 +1,4 @@
-<div class="aView columns small-16 medium-8" rv-class-small-centered="controller.singleView">
+<div class="aView">
    <div class="viewChrome clearfix">
       <div class="bibleNav">
          <label>
@@ -17,13 +17,13 @@
         <a class="langButton" rv-on-click="controller.showLang">
           <span class="barIcon icon-translate"></span>
         </a>
-         <a class="viewExpand" rv-on-click="controller.changeSize">
+<!--          <a class="viewExpand" rv-on-click="controller.changeSize">
             <span class="iconResize barIcon icon-expand"></span>
-         </a>
+         </a> -->
 
-         <a class="viewDestroy" rv-unless="controller.singleView" rv-on-click="controller.destroyView">
+<!--          <a class="viewDestroy" rv-unless="controller.singleView" rv-on-click="controller.destroyView">
             <span class="barIcon icon-trash"></span>
-         </a>
+         </a> -->
       </div>
       <div class="langContainer">
         <label> <!-- Label used for adding control arrows -->
@@ -46,6 +46,9 @@
         <div class="stick"></div>
       </div>
       <div id="bibleText" class="verses" rv-hide="state.isLoading" rv-html="state.content"></div>
-      <a class="nextChapter" rv-unless="state.isLastChapter" rv-on-click="controller.nextChapter">Next Chapter ></a>
+
+      <a class="prevChapter" rv-on-click="controller.prevChapter"><</a>
+     
+      <a class="nextChapter" rv-unless="state.isLastChapter" rv-on-click="controller.nextChapter">></a>
    </section>
 </div>

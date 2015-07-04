@@ -1,5 +1,7 @@
 .aView {
    margin-bottom: 20px;
+   margin: 0 auto;
+   max-width: 650px;
 }
 
 .viewBookName {
@@ -10,40 +12,40 @@
    color: #D6D6D6;
    text-shadow: 1px 1px 10px #D6D6D6;
    z-index: 1;
-   @media #{$medium} {
-      font-size: rem-calc(37);
-      line-height: rem-calc(34);
-   }
-   @media #{$large} {
-      font-size: rem-calc(53);
-      line-height: rem-calc(48);
-   }
+   // @media #{$medium} {
+   //    font-size: rem-calc(37);
+   //    line-height: rem-calc(34);
+   // }
+   // @media #{$large} {
+   //    font-size: rem-calc(53);
+   //    line-height: rem-calc(48);
+   // }
 }
 
 .viewChrome {
-   background-color: #C6C6C6;
+   background-color: $chrome-bgColor;
    display: block;
    .bibleNav {
       float: left;
    }
    .viewControls {
       float: right;
-          -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
    }
 }
 
 .barIcon {
-   font-size: rem-calc(30);
-   line-height: rem-calc(45);
+   font-size: 2rem;
+   line-height: 1.4;
    width: 2.8125rem;
    height: 2.8125rem;
    padding: 8px;
-   color: darken($tabbar-bg, 20%);
+   color: darken($chrome-bgColor, 15%);
    &:hover {
       color: $secondary-color;
    }
@@ -65,9 +67,9 @@
 
 .icon-contract,
 .icon-expand {
-   @media #{$small-only} {
-      display: none;
-   }
+   // @media #{$small-only} {
+   //    display: none;
+   // }
 }
 
 .icon-colorMode {
@@ -83,17 +85,30 @@
 }
 
 .text-section {
-   background-color: #EEEEEE;
+   background-color: lighten($chrome-bgColor, 17%);
    color: #1B1B1B;
    border: 1px solid #ccc;
-   padding: 40px 5px 20px;
-   @media #{$medium-up} {
-      padding: 40px 25px 30px;
+   padding: 20px 5px 20px;
+   // @media #{$medium-up} {
+   //    padding: 40px 25px 30px;
+   // }
+}
+
+.prevChapter {
+   opacity: .4;
+   position: fixed;
+   left: 6px;
+   bottom: 1px;
+   padding: 7px 13px;
+   background: darken(#EEEEEE, 5%);
+   &:hover {
+      background: darken(#EEEEEE, 15%);
    }
 }
 
 .nextChapter {
-   position: absolute;
+   opacity: .4;
+   position: fixed;
    right: 6px;
    bottom: 1px;
    padding: 7px 13px;

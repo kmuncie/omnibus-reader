@@ -1,44 +1,46 @@
 #bibleText {
    padding: 0 10px 20px 10px;
-   font-size: rem-calc(20);
-   line-height: rem-calc(28);
+   font-size: 1.4rem;
+   line-height: 2.4rem;
    position: relative;
-   @media #{$medium-up} {
-      font-size: rem-calc(23);
-      line-height: rem-calc(37);
-   }
+   font-family: $body-font-family;
+   // @media #{$medium-up} {
+   //    font-size: rem-calc(23);
+   //    line-height: rem-calc(37);
+   // }
    a {
       color: lighten($primary-color, 1%);
-      text-shadow: 1px 0 0 #7F7F7F;
       &.xrefLink,
       &.footnoteLink {
          display: none;
       }
       &:hover {
-         text-shadow: 2px 0 0 #000;
+         text-shadow: 1px 0 1px #585858;
       }
    }
    .chapterNum {
-      font-size: rem-calc(55);
+      font-family: $header-font-family;
+      font-size: 3.5rem;
+      font-weight: bold;
       .readingMode & {
          display: none;
       }
-      @media #{$medium-up} {
-         font-size: rem-calc(65);
-      }
+      // @media #{$medium-up} {
+      //    font-size: rem-calc(65);
+      // }
       a {
          color: lighten($primary-color, 5%);
       }
    }
    .verseNum {
-      font-size: rem-calc(17);
-      text-shadow: 1px 0 0 #595959;
+      font-family: $header-font-family;
+      font-size: 1.3rem;
       .readingMode & {
          display: none;
       }
-      @media #{$medium-up} {
-         font-size: rem-calc(22);
-      }
+      // @media #{$medium-up} {
+      //    font-size: rem-calc(22);
+      // }
    }
    .parabreak {
       display: block;

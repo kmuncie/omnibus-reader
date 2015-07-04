@@ -16,7 +16,7 @@ select {
    border-radius:4px;
    font-family: $header-font-family;
    font-size: rem-calc(23);
-   background: #C6C6C6;
+   background: $chrome-bgColor;
    color:#5E5E5E;
    border: 1px dashed #969696;
    outline:none;

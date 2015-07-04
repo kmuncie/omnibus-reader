@@ -1,0 +1,22 @@
+$body-font-family: 'Quattrocento', serif;
+$header-font-family: "Merriweather Sans" ,"Quattrocento" ,serif;
+
+p {
+   font-family: $body-font-family;
+}
+
+$header-font-family: $header-font-family;
+h1, h2, h3, h4, h5, h6 {
+   font-family: $header-font-family;
+   font-weight: 300;
+   font-style: normal;
+   color: #372D2D;
+   text-rendering: optimizeLegibility;
+   margin-top: .2rem;
+   margin-bottom: .5rem;
+   line-height: 1.4;
+}
+
+a {
+   text-decoration: none;
+}

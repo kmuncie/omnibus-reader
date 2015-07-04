@@ -1,35 +1,16 @@
 @import "normalize";
-@import "settings";
 
-@charset "UTF-8";
-
-// Behold, here are all the Foundation components.
-@import
-   // "foundation/components/accordion",
-   // "foundation/components/alert-boxes",
-   // "foundation/components/block-grid",
-   // "foundation/components/button-groups",
-   "foundation/components/buttons",
-   "foundation/components/clearing",
-   // "foundation/components/dropdown",
-   // "foundation/components/dropdown-buttons",
-   "foundation/components/grid",
-   // "foundation/components/labels",
-   // "foundation/components/magellan",
-   // "foundation/components/pagination",
-   "foundation/components/panels",
-   // "foundation/components/reveal",
-   // "foundation/components/side-nav",
-   // "foundation/components/split-buttons",
-   // "foundation/components/sub-nav",
-   // "foundation/components/switch",
-   // "foundation/components/tooltips",
-   "foundation/components/top-bar",
-   "foundation/components/type";
-   // "foundation/components/offcanvas",
-   // "foundation/components/visibility";
+*, :before, :after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+$primary-color: #D09B37;
+$secondary-color: #4EAB7A;
+$chrome-bgColor: #CBCBCB;
 
 @import "icons";
+@import "typography";
 @import "page";
 @import "overrides";
 @import "view";

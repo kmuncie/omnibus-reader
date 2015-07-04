@@ -11,15 +11,16 @@
    display: inline-block;
    margin: 0 1rem 0 0;
    line-height: 1.5;
-   @media #{$small-only} {
-      font-size: rem-calc(17);
-   }
-   @media #{$medium} {
-      font-size: rem-calc(30);
-   }
-   @media #{$medium-up} {
-      line-height: rem-calc(60);
-   }
+   font-size: 1rem;
+   // @media #{$small-only} {
+   //    font-size: rem-calc(17);
+   // }
+   // @media #{$medium} {
+   //    font-size: rem-calc(30);
+   // }
+   // @media #{$medium-up} {
+   //    line-height: rem-calc(60);
+   // }
 }
 
 .button {
@@ -29,11 +30,13 @@
    line-height: 1.5;
    background-color: inherit;
    color: #888888;
-   @media #{$medium-up} {
-      padding: .5rem 1rem;
-      font-size: 1.2rem;
-   }
+   // @media #{$medium-up} {
+   //    padding: .5rem 1rem;
+   //    font-size: 1.2rem;
+   // }
 }
+
+$header-font-color: red;
 
 .darkMode {
    background-color: #1E1E1E;
@@ -66,12 +69,12 @@
       background-color: #1E1E1E;
       color: #EAEAEA;
       border: 1px solid #7D7D7D;
-      @media #{$small-only} {
-         border: none;
-         border-bottom: 1px solid #7D7D7D;
-      }
+      // @media #{$small-only} {
+      //    border: none;
+      //    border-bottom: 1px solid #7D7D7D;
+      // }
    }
-   .nextChapter {
+   .nextChapter, .prevChapter {
       background-color: lighten(#1E1E1E, 5%);
       &:hover {
          background-color: lighten(#1E1E1E, 5%);
@@ -79,12 +82,12 @@
    }
    #bibleText {
       a {
-         color: saturate($tabbar-bg, 20%);
+         color: saturate(#ccc, 20%);
          text-shadow: none;
       }
       .chapterNum {
          a {
-            color: saturate($tabbar-bg, 20%);
+            color: saturate(#ccc, 20%);
          }
       }
       .verseNum {
