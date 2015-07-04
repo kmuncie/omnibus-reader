@@ -1,5 +1,7 @@
 node_modules
 .tmp
+dist
+dev
 app/bower_components
 /bower_components/*
 *.gem
