@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 
       sass: {
          options: {
-            includePaths: ['app/bower_components/foundation/scss', 'app/scss']
+            includePaths: ['app/scss']
          },
          dist: {
             options: {
@@ -43,28 +43,16 @@ module.exports = function(grunt) {
             files: [{
                expand: true,
                cwd:'app/',
-               src: ['images/**', 'js/**', 'fonts/**', '**/*.html', '!**/*.scss', 'bower_components/**'],
+               src: ['images/**', 'js/**', 'fonts/**', '**/*.html', '!**/*.scss'],
                dest: 'dev/'
-            } , {
-               expand: true,
-               flatten: true,
-               src: ['app/bower_components/font-awesome/fonts/**'],
-               dest: 'dev/fonts/',
-               filter: 'isFile'
             } ]
          },
          dist: {
             files: [{
                expand: true,
                cwd:'app/',
-               src: ['images/**', 'fonts/**', '**/*.html', '!**/*.scss', '!bower_components/**'],
+               src: ['images/**', 'fonts/**', '**/*.html', '!**/*.scss'],
                dest: 'dist/'
-            } , {
-               expand: true,
-               flatten: true,
-               src: ['app/bower_components/font-awesome/fonts/**'],
-               dest: 'dist/fonts/',
-               filter: 'isFile'
             } ]
          },
       },
@@ -79,7 +67,7 @@ module.exports = function(grunt) {
 
 
       useminPrepare: {
-         html: ['app/**/*.html', '!app/bower_components/**'],
+         html: ['app/**/*.html'],
          options: {
             dest: 'dist'
          }
@@ -87,7 +75,7 @@ module.exports = function(grunt) {
 
 
       usemin: {
-         html: ['dist/**/*.html', '!app/bower_components/**'],
+         html: ['dist/**/*.html'],
          css: ['dist/css/**/*.css'],
          options: {
             dirs: ['dist']
@@ -105,7 +93,7 @@ module.exports = function(grunt) {
             tasks: ['sass']
          },
          livereload: {
-            files: ['dev/**/*.html', '!dev/bower_components/**', 'dev/js/**/*.js', 'dev/css/**/*.css', 'dev/images/**/*.{jpg,gif,svg,jpeg,png}'],
+            files: ['dev/**/*.html', 'dev/js/**/*.js', 'dev/css/**/*.css', 'dev/images/**/*.{jpg,gif,svg,jpeg,png}'],
             options: {
                livereload: true
             }
