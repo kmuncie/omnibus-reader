@@ -4,11 +4,12 @@ An online Bible reading application
 
 ## Development
 
-Project generated using [Yeoman](http://yeoman.io/index.html) and [generator-zf5](https://github.com/juliancwirko/generator-zf5)
+Project  originally generated using [Yeoman](http://yeoman.io/index.html) and [generator-zf5](https://github.com/juliancwirko/generator-zf5). Modified from those origins. 
 
 #### Features
-* Sass compiling
-* Publishing to dist directory
+* LibSass compiling
+* Development build to dev directory
+* Publishing build to dist directory
 * Server with LiveReload (127.0.0.1:9000)
 * JSHint
 * Font Awesome
@@ -44,7 +45,7 @@ $ grunt validate-js
 ```
 $ grunt build
 ```
-..for watching (Sass, Server on 127.0.0.1:9000 with LiveReload)
+..for development with watching (Sass, copy to dev folder, Server on 127.0.0.1:9000 with LiveReload)
 ```
 $ grunt
 ```
@@ -64,3 +65,7 @@ $ grunt server-dist
 * Jonathan James
 * Evan Yu
 * Craig Weber
+
+### Contributors
+* Ethan Smith
+* Ace Muncie
