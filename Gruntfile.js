@@ -14,7 +14,7 @@ module.exports = function(grunt) {
                outputStyle: 'extended',
             },
             files: {
-               'app/css/app.css': 'app/scss/app.scss'
+               'dev/css/app.css': 'app/scss/app.scss'
             }
          }
       },
@@ -39,6 +39,20 @@ module.exports = function(grunt) {
 
 
       copy: {
+         dev: {
+            files: [{
+               expand: true,
+               cwd:'app/',
+               src: ['images/**', 'js/**', 'fonts/**', '**/*.html', '!**/*.scss', 'bower_components/**'],
+               dest: 'dev/'
+            } , {
+               expand: true,
+               flatten: true,
+               src: ['app/bower_components/font-awesome/fonts/**'],
+               dest: 'dev/fonts/',
+               filter: 'isFile'
+            } ]
+         },
          dist: {
             files: [{
                expand: true,
@@ -91,7 +105,7 @@ module.exports = function(grunt) {
             tasks: ['sass']
          },
          livereload: {
-            files: ['app/**/*.html', '!app/bower_components/**', 'app/js/**/*.js', 'app/css/**/*.css', 'app/images/**/*.{jpg,gif,svg,jpeg,png}'],
+            files: ['dev/**/*.html', '!dev/bower_components/**', 'dev/js/**/*.js', 'dev/css/**/*.css', 'dev/images/**/*.{jpg,gif,svg,jpeg,png}'],
             options: {
                livereload: true
             }
@@ -100,10 +114,10 @@ module.exports = function(grunt) {
 
 
       connect: {
-         app: {
+         dev: {
             options: {
                port: 9000,
-               base: 'app/',
+               base: 'dev/',
                open: true,
                livereload: true
             }
@@ -133,7 +147,7 @@ module.exports = function(grunt) {
    grunt.loadNpmTasks('grunt-usemin');
 
    grunt.registerTask('build', ['sass']);
-   grunt.registerTask('default', ['build', 'connect:app', 'watch']);
+   grunt.registerTask('default', ['build','copy:dev', 'connect:dev', 'watch']);
    grunt.registerTask('validate-js', ['jshint']);
    grunt.registerTask('server-dist', ['connect:dist']);
    grunt.registerTask('publish', ['clean:dist', 'validate-js', 'useminPrepare', 'copy:dist', 'concat', 'cssmin', 'uglify', 'usemin']);
