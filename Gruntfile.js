@@ -1,20 +1,67 @@
 'use strict';
 
 module.exports = function(grunt) {
+   var development = grunt.option('dev');
+
    grunt.initConfig({
       pkg: grunt.file.readJSON('package.json'),
+
+      /**
+       * All the paths for the project
+       */
+      project: {
+         /**
+          * Paths for stuff installed from npm
+          */
+         lib: {
+            node: 'node_modules'
+         },
+
+         /**
+          * Paths for source code
+          */
+         src: {
+            root: 'app',
+            sass: '<%= project.src.root %>/scss',
+            js: '<%= project.src.root %>/js'
+         },
+
+         /**
+          * Development build target
+          */
+         dev: {
+            root: 'dev',
+            css: '<%= project.dev.root %>/css',
+            js: '<%= project.dev.root %>/js'
+         },
+
+         /**
+          * Deploy build target
+          */
+         dist: {
+            root: 'dist',
+            css: '<%= project.dist.root %>/css',
+            js: '<%= project.dist.root %>/js'
+         },
+
+         target: {
+            root: development ? '<%= project.dev.root %>' : '<%= project.dist.root %>',
+            css: development ? '<%= project.dev.css %>' : '<%= project.dist.css %>',
+            js: development ? '<%= project.dev.js %>' : '<%= project.dist.js %>',
+         }
+      },
 
 
       sass: {
          options: {
-            includePaths: ['app/scss']
+            includePaths: ['<%= project.src.sass %>']
          },
-         dist: {
+         build: {
             options: {
                outputStyle: 'extended',
             },
             files: {
-               'dev/css/app.css': 'app/scss/app.scss'
+               '<%= project.target.css %>/app.css': '<%= project.src.sass %>/app.scss'
             }
          }
       },
@@ -26,35 +73,27 @@ module.exports = function(grunt) {
          },
          all: [
             'Gruntfile.js',
-            'app/js/**/*.js'
+            '<%= project.src.js %>/**/*.js'
          ]
       },
 
 
       clean: {
-         dist: {
-            src: ['dist/*']
+         build: {
+            src: [ '<%= project.target.root %>/*' ]
          },
       },
 
 
       copy: {
-         dev: {
+         build: {
             files: [{
                expand: true,
-               cwd:'app/',
+               cwd:'<%= project.src.root %>/',
                src: ['images/**', 'js/**', 'fonts/**', '**/*.html', '!**/*.scss'],
-               dest: 'dev/'
+               dest: '<%= project.target.root %>/'
             } ]
-         },
-         dist: {
-            files: [{
-               expand: true,
-               cwd:'app/',
-               src: ['images/**', 'fonts/**', '**/*.html', '!**/*.scss'],
-               dest: 'dist/'
-            } ]
-         },
+         }
       },
 
 
@@ -67,7 +106,7 @@ module.exports = function(grunt) {
 
 
       useminPrepare: {
-         html: ['app/**/*.html'],
+         html: ['<%= project.src.root %>/**/*.html'],
          options: {
             dest: 'dist'
          }
@@ -75,10 +114,10 @@ module.exports = function(grunt) {
 
 
       usemin: {
-         html: ['dist/**/*.html'],
-         css: ['dist/css/**/*.css'],
+         html: ['<%= project.target.root %>/**/*.html'],
+         css: ['<%= project.target.css %>/**/*.css'],
          options: {
-            dirs: ['dist']
+            dirs: ['<%= project.target.root %>']
          }
       },
 
@@ -89,11 +128,16 @@ module.exports = function(grunt) {
             tasks: ['sass']
          },
          sass: {
-            files: 'app/scss/**/*.scss',
+            files: '<%= project.src.sass %>/**/*.scss',
             tasks: ['sass']
          },
          livereload: {
-            files: ['dev/**/*.html', 'dev/js/**/*.js', 'dev/css/**/*.css', 'dev/images/**/*.{jpg,gif,svg,jpeg,png}'],
+            files: [
+               '<%= project.target.root %>/**/*.html',
+               '<%= project.target.js %>/**/*.js',
+               '<%= project.target.css %>/**/*.css',
+               '<%= project.target.root %>/images/**/*.{jpg,gif,svg,jpeg,png}'
+            ],
             options: {
                livereload: true
             }
@@ -102,18 +146,10 @@ module.exports = function(grunt) {
 
 
       connect: {
-         dev: {
+         build: {
             options: {
                port: 9000,
-               base: 'dev/',
-               open: true,
-               livereload: true
-            }
-         },
-         dist: {
-            options: {
-               port: 9001,
-               base: 'dist/',
+               base: '<%= project.target.root %>/',
                open: true,
                keepalive: true,
                livereload: false
@@ -135,8 +171,8 @@ module.exports = function(grunt) {
    grunt.loadNpmTasks('grunt-usemin');
 
    grunt.registerTask('build', ['sass']);
-   grunt.registerTask('default', ['build','copy:dev', 'connect:dev', 'watch']);
+   grunt.registerTask('default', ['build','copy:build', 'connect:build', 'watch']);
    grunt.registerTask('validate-js', ['jshint']);
-   grunt.registerTask('server-dist', ['connect:dist']);
-   grunt.registerTask('publish', ['clean:dist', 'validate-js', 'useminPrepare', 'copy:dist', 'concat', 'cssmin', 'uglify', 'usemin']);
+   grunt.registerTask('server-dist', ['connect:build']);
+   grunt.registerTask('publish', ['clean:build', 'validate-js', 'useminPrepare', 'copy:build', 'concat', 'cssmin', 'uglify', 'usemin']);
 };
