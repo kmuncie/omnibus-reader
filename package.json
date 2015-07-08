@@ -23,9 +23,6 @@
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-connect": "~0.10.1",
     "grunt-usemin": "~2.0.2",
-    "grunt-sass": "~1.0.0",
-    "underscore": "~1.8.3",
-    "rivets": "~0.8.1",
-    "modernizr": "~3.0.0-alpha.4"
+    "grunt-sass": "~1.0.0"
   }
 }
