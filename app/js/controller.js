@@ -144,8 +144,8 @@ module.require(['template', 'parser-verselink'], function(template, VerseLinkPar
       //    c.state.chapter = 1;
       //    c.state.book--;
       // } else {
-         c.state.chapter--;
-      
+      c.state.chapter--;
+
 
       c.controller.changeChapter(e, c);
    };
@@ -171,7 +171,7 @@ module.require(['template', 'parser-verselink'], function(template, VerseLinkPar
          state: {
             isLoading: true,
             isExpanding: true,
-            isFirstChapter: false,            
+            isFirstChapter: false,
             isLastChapter: false,
             edition: '',
             book: 1,

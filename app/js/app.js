@@ -1,7 +1,6 @@
 module.require(['Controller', 'fetcher'], function(Controller, fetcher) {
    'use strict';
-   var doc = $(document),
-       controller;
+   var controller;
 
    // Boot up application
    controller = new Controller(fetcher);
