@@ -39,13 +39,13 @@ Control is currently keyboard-only.
 
 ..for validating javascript
 ```
-$ grunt validate-js
+$ grunt jshint
 ```
-..for compiling files
+..for compiling files to dev folder
 ```
 $ grunt build
 ```
-..for development with watching (Sass, copy to dev folder, Server on 127.0.0.1:9000 with LiveReload)
+..for development with watching (build to dev folder, Server on 127.0.0.1:9000 with LiveReload)
 ```
 $ grunt
 ```
@@ -55,7 +55,7 @@ $ grunt publish
 ```
 ..for dist directory preview (server on 127.0.0.1:9001)
 ```
-$ grunt server-dist
+$ grunt preview-dist
 ```
 
 ### Created by
