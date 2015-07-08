@@ -1,7 +1,10 @@
 'use strict';
 
 module.exports = function(grunt) {
-   var development = grunt.option('dev');
+   var development = (
+      grunt.cli.tasks.indexOf('publish') === -1 &&
+      grunt.cli.tasks.indexOf('preview-dist') === -1
+   );
 
    grunt.initConfig({
       pkg: grunt.file.readJSON('package.json'),
@@ -44,10 +47,19 @@ module.exports = function(grunt) {
             js: '<%= project.dist.root %>/js'
          },
 
+         /**
+          * Place for temporary build files
+          */
+         tmp: {
+            root: '.tmp',
+            css: '<%= project.tmp.root %>/css'
+         },
+
          target: {
             root: development ? '<%= project.dev.root %>' : '<%= project.dist.root %>',
             css: development ? '<%= project.dev.css %>' : '<%= project.dist.css %>',
-            js: development ? '<%= project.dev.js %>' : '<%= project.dist.js %>',
+            sasstarget: development ? '<%= project.dev.css %>' : '<%= project.tmp.css %>',
+            js: development ? '<%= project.dev.js %>' : '<%= project.dist.js %>'
          }
       },
 
@@ -61,7 +73,7 @@ module.exports = function(grunt) {
                outputStyle: 'extended',
             },
             files: {
-               '<%= project.target.css %>/app.css': '<%= project.src.sass %>/app.scss'
+               '<%= project.target.sasstarget %>/app.css': '<%= project.src.sass %>/app.scss'
             }
          }
       },
@@ -80,7 +92,7 @@ module.exports = function(grunt) {
 
       clean: {
          build: {
-            src: [ '<%= project.target.root %>/*' ]
+            src: [ '<%= project.target.root %>/*', '<%= project.tmp.root %>/*' ]
          },
       },
 
@@ -90,7 +102,15 @@ module.exports = function(grunt) {
             files: [{
                expand: true,
                cwd:'<%= project.src.root %>/',
-               src: ['images/**', 'js/**', 'fonts/**', '**/*.html', '!**/*.scss'],
+               src: ['images/**', 'fonts/**', '**/*.html', '!**/*.scss'],
+               dest: '<%= project.target.root %>/'
+            } ]
+         },
+         dev: {
+            files: [{
+               expand: true,
+               cwd:'<%= project.src.root %>/',
+               src: ['js/**'],
                dest: '<%= project.target.root %>/'
             } ]
          }
@@ -108,7 +128,7 @@ module.exports = function(grunt) {
       useminPrepare: {
          html: ['<%= project.src.root %>/**/*.html'],
          options: {
-            dest: 'dist'
+            dest: '<%= project.target.root %>'
          }
       },
 
@@ -133,10 +153,10 @@ module.exports = function(grunt) {
          },
          livereload: {
             files: [
-               '<%= project.target.root %>/**/*.html',
-               '<%= project.target.js %>/**/*.js',
-               '<%= project.target.css %>/**/*.css',
-               '<%= project.target.root %>/images/**/*.{jpg,gif,svg,jpeg,png}'
+               '<%= project.src.root %>/**/*.html',
+               '<%= project.src.js %>/**/*.js',
+               '<%= project.src.css %>/**/*.css',
+               '<%= project.src.root %>/images/**/*.{jpg,gif,svg,jpeg,png}'
             ],
             options: {
                livereload: true
@@ -146,10 +166,18 @@ module.exports = function(grunt) {
 
 
       connect: {
-         build: {
+         dev: {
             options: {
                port: 9000,
-               base: '<%= project.target.root %>/',
+               base: '<%= project.dev.root %>/',
+               open: true,
+               livereload: true
+            }
+         },
+         dist: {
+            options: {
+               port: 9001,
+               base: '<%= project.dist.root %>/',
                open: true,
                keepalive: true,
                livereload: false
@@ -170,9 +198,9 @@ module.exports = function(grunt) {
    grunt.loadNpmTasks('grunt-contrib-connect');
    grunt.loadNpmTasks('grunt-usemin');
 
-   grunt.registerTask('build', ['sass']);
-   grunt.registerTask('default', ['build','copy:build', 'connect:build', 'watch']);
-   grunt.registerTask('validate-js', ['jshint']);
-   grunt.registerTask('server-dist', ['connect:build']);
-   grunt.registerTask('publish', ['clean:build', 'validate-js', 'useminPrepare', 'copy:build', 'concat', 'cssmin', 'uglify', 'usemin']);
+   grunt.registerTask('build-base', ['jshint', 'clean:build', 'sass', 'copy:build']);
+   grunt.registerTask('build', ['build-base', 'copy:dev']);
+   grunt.registerTask('default', ['build', 'connect:dev', 'watch']);
+   grunt.registerTask('preview-dist', ['connect:dist']);
+   grunt.registerTask('publish', ['build-base', 'useminPrepare', 'concat', 'cssmin', 'uglify', 'usemin']);
 };
