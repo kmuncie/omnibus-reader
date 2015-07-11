@@ -151,11 +151,19 @@ module.exports = function(grunt) {
             files: '<%= project.src.sass %>/**/*.scss',
             tasks: ['sass']
          },
+         html: {
+            files: '<%= project.src.root %>/**/*.html',
+            tasks: ['build']
+         },
+         js: {
+            files: '<%= project.src.root %>/**/*.js',
+            tasks: ['build']
+         },
          livereload: {
             files: [
                '<%= project.src.root %>/**/*.html',
                '<%= project.src.js %>/**/*.js',
-               '<%= project.src.sass %>/**/*.css',
+               '<%= project.src.sass %>/**/*.scss',
                '<%= project.src.root %>/images/**/*.{jpg,gif,svg,jpeg,png}'
             ],
             options: {
