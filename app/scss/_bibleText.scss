@@ -4,10 +4,6 @@
    line-height: 2.4rem;
    position: relative;
    font-family: $body-font-family;
-   // @media #{$medium-up} {
-   //    font-size: rem-calc(23);
-   //    line-height: rem-calc(37);
-   // }
    a {
       color: lighten($primary-color, 1%);
       &.xrefLink,
@@ -19,28 +15,20 @@
       }
    }
    .chapterNum {
-      font-family: $header-font-family;
       font-size: 3.5rem;
       font-weight: bold;
       .readingMode & {
          display: none;
       }
-      // @media #{$medium-up} {
-      //    font-size: rem-calc(65);
-      // }
       a {
          color: lighten($primary-color, 5%);
       }
    }
    .verseNum {
-      font-family: $header-font-family;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       .readingMode & {
          display: none;
       }
-      // @media #{$medium-up} {
-      //    font-size: rem-calc(22);
-      // }
    }
    .parabreak {
       display: block;

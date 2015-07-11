@@ -40,7 +40,7 @@ module.require(['template', 'parser-verselink'], function(template, VerseLinkPar
    Controller.prototype.changeColor = function() {
       $('.entirePage').toggleClass('darkMode');
    };
-   
+
    Controller.prototype.readingMode = function() {
       $('.entirePage').toggleClass('readingMode');
    };
@@ -85,6 +85,8 @@ module.require(['template', 'parser-verselink'], function(template, VerseLinkPar
 
    Controller.prototype.showLang = function(e, c) {
       e.preventDefault();
+
+      c.view.siblings('.aView').toggleClass('langSpace');
       c.view.find('.langContainer').toggleClass('visible');
    };
 
