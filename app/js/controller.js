@@ -37,6 +37,14 @@ module.require(['template', 'parser-verselink'], function(template, VerseLinkPar
    };
 
 
+   Controller.prototype.changeColor = function() {
+      $('.entirePage').toggleClass('darkMode');
+   };
+   
+   Controller.prototype.readingMode = function() {
+      $('.entirePage').toggleClass('readingMode');
+   };
+
    Controller.prototype.changeBook = function(e, c) {
       e.preventDefault();
       var bookID = parseInt(c.state.book, 10),

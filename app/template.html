@@ -1,34 +1,41 @@
-<div class="aView">
-   <div class="viewChrome clearfix">
-      <div class="bibleNav">
-         <label>
-           <select class='sel-style sel-book' name="Bible Book" rv-value="state.book" rv-on-change="controller.changeBook">
-              <option rv-each-book="state.books" rv-value="book.bookNum" rv-html="book.standardName"></option>
-           </select>
-         </label>
-         <label>
-           <select class='sel-style sel-chapter' name="Book Chapter" rv-value="state.chapter" rv-on-change="controller.changeChapter">
-              <option rv-each-chapter="state.chapters" rv-value="chapter.chapterNum" rv-html="chapter.chapterNum"></option>
-           </select>
-         </label>
-      </div>
-
-      <div class="viewControls">
-        <a class="langButton" rv-on-click="controller.showLang">
-          <span class="barIcon icon-translate"></span>
-        </a>
-
-      </div>
-      <div class="langContainer">
-        <label> <!-- Label used for adding control arrows -->
-          <select class='sel-lang' name="Edition" rv-value="state.edition" rv-on-change="controller.changeLanguage">
-            <optgroup rv-each-language="controller.languages" rv-label="language.lang.vernacularName">
-              <option rv-each-edition="language.editions" rv-value="edition.contentAPI" rv-html="edition.title"></option>
-            </optgroup>
-          </select>
-        </label>
-      </div>
+<div class="viewChrome clearfix">
+   <div class="bibleNav">
+      <label>
+        <select class='sel-style sel-book' name="Bible Book" rv-value="state.book" rv-on-change="controller.changeBook">
+           <option rv-each-book="state.books" rv-value="book.bookNum" rv-html="book.standardName"></option>
+        </select>
+      </label>
+      <label>
+        <select class='sel-style sel-chapter' name="Book Chapter" rv-value="state.chapter" rv-on-change="controller.changeChapter">
+           <option rv-each-chapter="state.chapters" rv-value="chapter.chapterNum" rv-html="chapter.chapterNum"></option>
+        </select>
+      </label>
    </div>
+
+   <div class="controls">
+      <a class="readingMode" rv-on-click="controller.readingMode">
+         <span class="icon-book"></span>
+      </a>
+      <a class="colorMode" rv-on-click="controller.changeColor">
+         <span class="icon-lightbulb"></span>
+      </a>
+      <a class="langButton" rv-on-click="controller.showLang">
+         <span class="icon-translate"></span>
+      </a>
+   </div>
+
+   <div class="langContainer">
+     <label> <!-- Label used for adding control arrows -->
+       <select class='sel-lang' name="Edition" rv-value="state.edition" rv-on-change="controller.changeLanguage">
+         <optgroup rv-each-language="controller.languages" rv-label="language.lang.vernacularName">
+           <option rv-each-edition="language.editions" rv-value="edition.contentAPI" rv-html="edition.title"></option>
+         </optgroup>
+       </select>
+     </label>
+   </div>
+</div>
+
+<div class="aView">
    <section class="text-section darkColor">
       <div class="loading" rv-show="state.isLoading">
         <div class="stick"></div>
