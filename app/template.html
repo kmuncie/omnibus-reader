@@ -6,7 +6,7 @@
               <option rv-each-book="state.books" rv-value="book.bookNum" rv-html="book.standardName"></option>
            </select>
          </label>
-         <!-- <label> -->
+         <label>
            <select class='sel-style sel-chapter' name="Book Chapter" rv-value="state.chapter" rv-on-change="controller.changeChapter">
               <option rv-each-chapter="state.chapters" rv-value="chapter.chapterNum" rv-html="chapter.chapterNum"></option>
            </select>
@@ -17,13 +17,7 @@
         <a class="langButton" rv-on-click="controller.showLang">
           <span class="barIcon icon-translate"></span>
         </a>
-<!--          <a class="viewExpand" rv-on-click="controller.changeSize">
-            <span class="iconResize barIcon icon-expand"></span>
-         </a> -->
 
-<!--          <a class="viewDestroy" rv-unless="controller.singleView" rv-on-click="controller.destroyView">
-            <span class="barIcon icon-trash"></span>
-         </a> -->
       </div>
       <div class="langContainer">
         <label> <!-- Label used for adding control arrows -->
@@ -33,10 +27,9 @@
             </optgroup>
           </select>
         </label>
-      </div>      
+      </div>
    </div>
    <section class="text-section darkColor">
-      <!-- <h1 class="viewBookName" rv-html="state.title"></h1> -->
       <div class="loading" rv-show="state.isLoading">
         <div class="stick"></div>
         <div class="stick"></div>
@@ -48,7 +41,7 @@
       <div id="bibleText" class="verses" rv-hide="state.isLoading" rv-html="state.content"></div>
 
       <a class="prevChapter" rv-on-click="controller.prevChapter"><</a>
-     
+
       <a class="nextChapter" rv-unless="state.isLastChapter" rv-on-click="controller.nextChapter">></a>
    </section>
 </div>

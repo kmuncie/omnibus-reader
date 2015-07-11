@@ -12,8 +12,6 @@ module.require(['template', 'parser-verselink'], function(template, VerseLinkPar
 
       this.fetcher = fetcher;
       this.template = template;
-      // this.viewCount = 0;
-      // this.singleView = true;
       this.languages = [];
 
       this.fetcher.listLanguages().then(function(languages) {
@@ -31,8 +29,6 @@ module.require(['template', 'parser-verselink'], function(template, VerseLinkPar
              context = self.__buildContext(view);
 
          $('#content').append(view);
-         // self.viewCount++;
-         // self.singleView = (self.viewCount === 1);
 
          rivets.bind(view, context);
          context.state.edition = 'http://www.jw.org/en/publications/bible/nwt/books/json/';
@@ -96,56 +92,10 @@ module.require(['template', 'parser-verselink'], function(template, VerseLinkPar
       });
    };
 
-
-   // Controller.prototype.changeSize = function(e, c) {
-   //    var icon = c.view.find('.iconResize');
-
-   //    if (c.view.hasClass('medium-8 large-4')) {
-   //       c.view.removeClass('large-4');
-   //       return;
-   //    }
-
-   //    if (c.view.hasClass('medium-8') && c.state.isExpanding) {
-   //       c.view.removeClass('medium-8');
-   //       icon.removeClass('icon-expand');
-   //       icon.addClass('icon-shrink');
-   //       c.state.isExpanding = false;
-   //       return;
-   //    }
-
-   //    if (c.view.hasClass('medium-8')) {
-   //       c.view.addClass('large-4');
-   //       c.state.isExpanding = true;
-   //    }
-
-   //    c.view.addClass('medium-8');
-
-   //    if (!c.state.isExpanding) {
-   //       icon.removeClass('icon-expand');
-   //       icon.addClass('icon-shrink');
-   //    } else {
-   //       icon.addClass('icon-expand');
-   //       icon.removeClass('icon-shrink');
-   //    }
-   // };
-
-
-   // Controller.prototype.destroyView = function(e, c) {
-   //    e.preventDefault();
-   //    c.controller.viewCount--;
-   //    c.controller.singleView = (c.controller.viewCount === 1);
-   //    c.view.remove();
-   // };
-
    Controller.prototype.prevChapter = function(e, c) {
       e.preventDefault();
 
-      // if (c.state.chapter <= c.state.chapters.length) {
-      //    c.state.chapter = 1;
-      //    c.state.book--;
-      // } else {
       c.state.chapter--;
-
 
       c.controller.changeChapter(e, c);
    };

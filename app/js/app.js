@@ -17,9 +17,4 @@ module.require(['Controller', 'fetcher'], function(Controller, fetcher) {
       $('.entirePage').toggleClass('readingMode');
    });
 
-   // // Add more readers
-   // $('#addNew').click(function() {
-   //    controller.addView();
-   // });
-
 });
