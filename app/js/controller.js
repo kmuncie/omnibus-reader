@@ -105,22 +105,31 @@ module.require(['template', 'parser-verselink'], function(template, VerseLinkPar
    Controller.prototype.prevChapter = function(e, c) {
       e.preventDefault();
 
-      c.state.chapter--;
-
-      c.controller.changeChapter(e, c);
+      if (c.state.chapter < 2) {
+         c.state.book--;
+         c.controller.changeBook(e, c);
+         c.state.chapter = c.state.chapters.length;
+         c.controller.changeChapter(e, c);
+      } else {
+         c.state.chapter--;
+         c.controller.changeChapter(e, c);
+      }
    };
 
    Controller.prototype.nextChapter = function(e, c) {
       e.preventDefault();
 
-      if (c.state.chapter >= c.state.chapters.length) {
-         c.state.chapter = 1;
+      if (c.state.chapter === c.state.chapters.length) {
          c.state.book++;
+         c.controller.changeBook(e, c);
+         c.state.chapter = 1;
+         c.controller.changeChapter(e, c);
+
       } else {
          c.state.chapter++;
+         c.controller.changeChapter(e, c);
       }
 
-      c.controller.changeChapter(e, c);
    };
 
 
