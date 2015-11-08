@@ -1,7 +1,7 @@
 /**
  * Fetcher functionality
  */
-module.require(['template', 'parser-verselink'], function(template, VerseLinkParser) {
+module.require(['template', 'parser-verselink', 'debug'], function(template, VerseLinkParser, debug) {
    'use strict';
 
    var Controller;
@@ -72,6 +72,11 @@ module.require(['template', 'parser-verselink'], function(template, VerseLinkPar
    Controller.prototype.changeChapter = function(e, c) {
       e.preventDefault();
 
+      if (!c.state.edition) {
+         debug.log('not able to change chapter because edition has not been set.');
+         return;
+      }
+
       c.state.isLoading = true;
       c.controller.fetcher.getChapter(c.state.edition, c.state.book, c.state.chapter).then(function(chap) {
          chap = VerseLinkParser.parse(chap);
@@ -93,6 +98,11 @@ module.require(['template', 'parser-verselink'], function(template, VerseLinkPar
 
    Controller.prototype.changeLanguage = function(e, c) {
       e.preventDefault();
+
+      if (!c.state.edition) {
+         debug.log('not able to change language because edition has not been set.');
+         return;
+      }
 
       c.state.isLoading = true;
       c.controller.fetcher.listBooks(c.state.edition).then(function(books) {
