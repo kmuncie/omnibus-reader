@@ -70,6 +70,11 @@ module.require(['debug'], function(debug) {
 
 
       __makeRequest: function(path) {
+         if (!path) {
+            debug.log('Trying to access a falsey path');
+            return null;
+         }
+
          var promise;
 
          path = path + '?callback=?';
