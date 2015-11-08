@@ -69,24 +69,19 @@ module.require(['debug'], function(debug) {
       },
 
 
-      __makeRequest: (function() {
-         var cache = {};
+      __makeRequest: function(path) {
+         var promise;
 
-         return function(path) {
-            path = path + '?callback=?';
+         path = path + '?callback=?';
+         debug.log('Requesting ' + path);
 
-            if (!cache.hasOwnProperty(path)) {
-               debug.log('Requesting ' + path);
-               cache[path] = $.getJSON(path);
+         promise = $.getJSON(path);
+         promise.done(function() {
+            debug.log('Response ' + path);
+         });
 
-               cache[path].done(function() {
-                  debug.log('Response ' + path);
-               });
-            }
-
-            return cache[path];
-         };
-      }())
+         return promise;
+      }
    };
 
 
