@@ -39,7 +39,7 @@ module.require(['debug'], function(debug) {
 
 
       listLanguages: function() {
-         return this.__makeRequest('http://www.jw.org/en/publications/bible/json/').then(function(data) {
+         return this.__makeRequest('https://www.jw.org/en/publications/bible/json/').then(function(data) {
             var langs = _.map(data.langs, function(lang) {
                lang.editions = _.filter(lang.editions, function(edition) {
                   return edition.contentAPI && edition.contentAPI.length > 0;

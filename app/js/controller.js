@@ -31,7 +31,7 @@ module.require(['template', 'parser-verselink', 'debug'], function(template, Ver
          $('#content').append(view);
 
          rivets.bind(view, context);
-         context.state.edition = 'http://www.jw.org/en/publications/bible/nwt/books/json/';
+         context.state.edition = 'https://www.jw.org/en/publications/bible/nwt/books/json/';
          context.view.find('.sel-lang').change();
       });
    };
@@ -98,6 +98,8 @@ module.require(['template', 'parser-verselink', 'debug'], function(template, Ver
 
    Controller.prototype.changeLanguage = function(e, c) {
       e.preventDefault();
+
+      console.log(c.state.edition);
 
       if (!c.state.edition) {
          debug.log('not able to change language because edition has not been set.');
