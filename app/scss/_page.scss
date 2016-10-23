@@ -40,7 +40,7 @@ $header-font-color: red;
    }
    .viewChrome,
    select {
-      background: #4C4C4C;
+      background: #333333;
       color: #ccc;
       -webkit-box-shadow:none;
       -moz-box-shadow:none;
@@ -57,9 +57,9 @@ $header-font-color: red;
       color: #d3d3d3;
    }
    .nextChapter, .prevChapter {
-      background-color: lighten(#000000, 5%);
+      background-color: lighten(#000000, 15%);
       &:hover {
-         background-color: lighten(#000000, 5%);
+         background-color: lighten(#000000, 15%);
       }
    }
    #bibleText {
