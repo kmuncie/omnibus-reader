@@ -26,8 +26,8 @@
 $header-font-color: red;
 
 .darkMode {
-   background-color: #1E1E1E;
-   color: #EAEAEA;
+   background-color: #000000;
+   color: #d3d3d3;
    .light {
       color: $header-font-color;
    }
@@ -53,13 +53,13 @@ $header-font-color: red;
       color: #ccc;
    }
    .textSection {
-      background-color: #1E1E1E;
-      color: #EAEAEA;
+      background-color: #000000;
+      color: #d3d3d3;
    }
    .nextChapter, .prevChapter {
-      background-color: lighten(#1E1E1E, 5%);
+      background-color: lighten(#000000, 5%);
       &:hover {
-         background-color: lighten(#1E1E1E, 5%);
+         background-color: lighten(#000000, 5%);
       }
    }
    #bibleText {
